@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Removes the first line of todo.txt
+
+tail -n +2 $HOME/todo.txt > $HOME/todo.txt.tmp && mv $HOME/todo.txt.tmp $HOME/todo.txt

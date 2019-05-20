@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Add to todo.txt file
+
+echo $1 | tee -a $HOME/todo.txt
+
+

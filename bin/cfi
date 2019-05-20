@@ -1,0 +1,6 @@
+#!/bin/bash
+
+echo $HOME/.config/i3/config | entr -p -n /usr/bin/i3 restart &>/dev/null &
+vim $HOME/.config/i3/config
+sleep 0.5
+kill $(pidof entr)
