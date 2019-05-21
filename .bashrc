@@ -96,6 +96,7 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
 alias ncmpcpp="ncmpcpp --port 6601"
+alias rm='rm -v'
 
 xhost +local:root > /dev/null 2>&1
 
@@ -145,4 +146,5 @@ export PATH=/home/cem/.gem/ruby/2.6.0/bin/:$PATH
 
 # Personal Scripts
 export PATH=/home/cem/bin/:$PATH
-alias rm='rm -v'
+export PATH=/home/cem/.scripts/:$PATH
+export PATH=/usr/local/bin/:$PATH

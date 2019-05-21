@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Dmenu Script to change wallpaper
+export selection=$(ls $HOME/Pictures/Wallpapers | dmenu)
+if [$selection = ""]
+then
+	exit
+else
+	feh --bg-fill $HOME/Pictures/Wallpapers/$selection
+fi

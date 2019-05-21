@@ -4,5 +4,5 @@ if [[ $(cat $HOME/todo.txt) == "" ]]
 then
 	echo "Nothing to do!"
 else
-	echo $(head -n 1 $HOME/todo.txt)
+	echo "$(head -n 1 $HOME/todo.txt) "
 fi

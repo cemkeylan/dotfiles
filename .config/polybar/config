@@ -67,7 +67,7 @@ height = 27
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
-fixed-center = false
+fixed-center = true
 background = ${colors.barback}
 foreground = ${colors.foreground}
 bottom = true
@@ -87,7 +87,7 @@ font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 
 modules-left = i3 bspwm 
-modules-center = 
+modules-center = todo 
 modules-right = xkeyboard filesystem rootfs memory cpu  
 
 tray-position = right
@@ -193,6 +193,16 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 ; label-separator = |
 
 
+[module/todo]
+type = custom/script
+exec = $HOME/bin/todo
+format = <label>
+label = TODO: %output%
+
+click-right = $HOME/bin/todorm
+click-middle = $HOME/bin/todorm
+click-left = $HOME/bin/todorm
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
@@ -202,7 +212,7 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.primary}
 
 label-layout = %layout%  |
 
@@ -217,7 +227,10 @@ interval = 25
 
 mount-0 = /home
 
-label-mounted = /home : %percentage_used%%
+format-mounted= /home : <label-mounted>
+label-mounted = %percentage_used%%
+format-mounted-foreground = ${colors.primary}
+label-mounted-foreground = #fff
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.alert}
 
@@ -225,8 +238,12 @@ label-unmounted-foreground = ${colors.alert}
 type = internal/fs
 interval = 25
 mount-0 = /
-label-mounted = / : %percentage_used%% |
-label-unmounted = %mountpoint% not unmounted
+
+format-mounted= / : <label-mounted>
+label-mounted = %percentage_used%%
+format-mounted-foreground = ${colors.primary}
+label-mounted-foreground = #fff
+label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.alert}
 
 [module/mpd]

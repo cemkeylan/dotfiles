@@ -20,7 +20,7 @@ set $fbrow firefox
 set $sbrow qutebrowser
 
 # File Manager
-set $fm nemo
+set $fm terminator -e "lf && exit"
 
 ###################################
 
