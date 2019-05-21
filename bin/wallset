@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Dmenu Script to change wallpaper
-export selection=$(ls $HOME/Pictures/Wallpapers | dmenu)
+export selection=$(ls $HOME/Pictures/Wallpapers | grep -i .jpg | dmenu)
 if [$selection = ""]
 then
 	exit

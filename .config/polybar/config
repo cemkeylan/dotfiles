@@ -234,17 +234,6 @@ label-mounted-foreground = #fff
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.alert}
 
-[module/rootfs]
-type = internal/fs
-interval = 25
-mount-0 = /
-
-format-mounted= / : <label-mounted>
-label-mounted = %percentage_used%%
-format-mounted-foreground = ${colors.primary}
-label-mounted-foreground = #fff
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.alert}
 
 [module/mpd]
 type = internal/mpd
