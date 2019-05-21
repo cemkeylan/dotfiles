@@ -27,6 +27,9 @@ set $fm terminator -e "lf && exit"
 # Mod will be ALT for me
 set $mod Mod1
 
+# Alternative Mod for Rarely-Used functions
+set $altmod Mod4
+
 # Configure i3-gaps
 gaps inner 15
 gaps outer 15
@@ -229,3 +232,7 @@ exec --no-startup-id nm-applet
 
 # Launch Policy Kit Daemon
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+
+#Change Wallpaper
+bindsym $altmod+w exec --no-startup-id $HOME/bin/wallset
