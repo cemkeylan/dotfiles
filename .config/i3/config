@@ -14,7 +14,7 @@
 set $term terminator
 
 # First Browser
-set $fbrow firefox
+set $fbrow myterminalkidnappedmesendhelpicanonlyusequtebrowsernow
 
 # Secondary Browser
 set $sbrow qutebrowser
@@ -197,7 +197,7 @@ bindsym $altmod+Shift+r exec --no-startup-id $HOME/bin/yousurereb
 bindsym $mod+n exec $fm
 
 # Launch First Browser (Web Browser)
-bindsym $mod+i exec $fbrow
+# My terminal kidnapped me call 911
 
 # Launch Secondary Browser
 bindsym $mod+o exec $sbrow
