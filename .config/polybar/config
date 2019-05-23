@@ -203,9 +203,9 @@ content = " Navigate"
 [module/mlaunch]
 type = custom/text
 
-click-right = ario 
-click-left = ario
-click-middle = ario 
+click-right = terminator -e "ncmpcpp --port 6601 && exit" 
+click-left = terminator -e "ncmpcpp --port 6601 && exit"
+click-middle = terminator -e "ncmpcpp --port 6601 && exit"
 content = 
 
 [module/i3]
