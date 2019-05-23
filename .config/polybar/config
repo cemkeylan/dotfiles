@@ -138,6 +138,7 @@ radius = 0.0
 fixed-center = true
 background = ${colors.barnight}
 foreground = ${colors.foreground}
+primary = ${colors.primary}
 bottom = true
 
 line-size = 3
@@ -231,7 +232,6 @@ label-focused-padding = ${module/bspwm.label-focused-padding}
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-label-unfocused-underline = ${root.primary}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
