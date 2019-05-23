@@ -13,8 +13,8 @@ More to be added soon
 
 ### Night Mode
 
-[night](screenshots/night.jpg)
+![night](screenshots/night.jpg)
 
 ### Morning Mode
 
-[morning](screenshots/morning.jpg)
+![morning](screenshots/morning.jpg)
