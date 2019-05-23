@@ -123,7 +123,7 @@ font-3 = Material Icons:style=Regular:size=13;4
 
 modules-left = i3 bspwm 
 modules-center = todo 
-modules-right = vpn nightmode xkeyboard filesystem rootfs memory cpu  
+modules-right = nightmode xkeyboard filesystem rootfs memory cpu  
 
 tray-position = right
 tray-padding = 2
@@ -156,7 +156,7 @@ font-3 = Material Icons:style=Regular:size=13;4
 
 modules-left = i3 bspwm 
 modules-center = todo 
-modules-right = vpn nightmode xkeyboard filesystem rootfs memory cpu  
+modules-right = nightmode xkeyboard filesystem rootfs memory cpu  
 
 tray-position = right
 tray-padding = 2
@@ -360,14 +360,6 @@ ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${root.primary}
-
-[module/vpn]
-type = custom/script
-exec = $HOME/bin/checkforvpn
-
-click-left = $HOME/bin/vpnswitch 
-click-right = $HOME/bin/vpnswitch
-click-middle = $HOME/bin/vpnswitch
 
 [module/eth]
 type = internal/network
