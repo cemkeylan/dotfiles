@@ -103,6 +103,7 @@ alias ccat="highlight"
 alias mutt="neomutt"
 alias cfb="vim $HOME/.bashrc"
 alias sb="source $HOME/.bashrc"
+alias dot="cd $HOME/dotfiles"
 
 xhost +local:root > /dev/null 2>&1
 
@@ -154,6 +155,4 @@ export PATH=/home/cem/.gem/ruby/2.6.0/bin/:$PATH
 export PATH=/home/cem/bin/:$PATH
 export PATH=/home/cem/.scripts/:$PATH
 export PATH=/usr/local/bin/:$PATH
-export VPNCONFIG=$HOME/auto.ovpn
 export EDITOR="vim"
-alias dot="cd $HOME/dotfiles"
