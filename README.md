@@ -8,3 +8,13 @@ These are my dotfiles which include my,
 * Custom Scripts
 
 More to be added soon
+
+## Screenshots
+
+### Night Mode
+
+[night](screenshots/night.jpg)
+
+### Morning Mode
+
+[morning](screenshots/morning.jpg)
