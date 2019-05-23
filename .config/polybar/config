@@ -25,9 +25,8 @@ primary = #1a94ff
 mornprim = #bdbdbd
 secondary = #e60053
 alert = #bd2c40
-barnight = #aa222222
-;barback = #026b5f
-;barback = #006f6f
+;barnight = #aa222222
+barnight = #aa282e44
 barback = #ffffff
 
 [bar/top]
@@ -343,15 +342,13 @@ type = internal/network
 interface = wlo1
 interval = 3.0
 
-format-connected =  <label-connected>
+format-connected-prefix = 
 label-connected = %essid% %local_ip%
-format-connected-foreground = ${root.primary}
-;label-connected-foreground = #fff
+format-connected-prefix-foreground = ${root.primary}
 
 format-disconnected-prefix = 
 label-disconnected = " disconnected"
 format-disconnected-prefix-foreground = ${root.primary}
-;label-disconnected-foreground = ${bar.foreground}
 
 
 ramp-signal-0 = 
