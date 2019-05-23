@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Removes the first line of todo.txt
 

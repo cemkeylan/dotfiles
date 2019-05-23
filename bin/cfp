@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 echo $HOME/.config/polybar/config | entr -p -n /home/cem/bin/polyrestart &>/dev/null &
 vim $HOME/.config/polybar/config
