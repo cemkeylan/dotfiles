@@ -1,7 +1,33 @@
 #!/bin/sh
 
-kill $(pidof polybar)
+if [[ $(ps aux) == *polybar* ]]
+then
+	kill $(pidof polybar)
+fi
 sleep 0.5
-polybar -q top &>/dev/null &
-sleep 0.5
-polybar -q bottom &>/dev/null &
+case $1 in
+	morning)
+		polybar -q top &>/dev/null &
+		sleep 0.5
+		polybar -q bottom &>/dev/null &
+		;;
+	night)
+		polybar -q topnight &>/dev/null &
+		sleep 0.5
+		polybar -q bottomnight &>/dev/null &
+		;;
+	*)
+		if [ -e $HOME/.night ]
+		then
+			if [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
+			then
+				$HOME/bin/polyrestart night
+			elif [ $(tail -n -1 $HOME/.night) = "NIGHT=0" ]
+			then
+				$HOME/bin/polyrestart morning
+			else
+				echo Unexpected error
+			fi
+		fi
+		;;
+esac

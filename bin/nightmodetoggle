@@ -1,0 +1,62 @@
+#!/bin/sh
+
+if [ -e $HOME/.night ]
+then
+	case $1 in
+		"click")
+			NIGHT=$(tail -n -1 $HOME/.night)
+			if [ $NIGHT = 'NIGHT=1' ]
+			then
+				NIGHT='NIGHT=0'
+			else
+				NIGHT='NIGHT=1'
+			fi
+			echo 'CLICK=1' > $HOME/.night
+			echo $NIGHT >> $HOME/.night
+			;;
+		"disable")
+			NIGHT=$(tail -n -1 $HOME/.night)
+			echo 'CLICK=0' > $HOME/.night
+			echo $NIGHT >> $HOME/.night
+			nightmodetoggle cron
+			;;
+		"cron")
+			if [ $(head -n +1 $HOME/.night) = "CLICK=1" ]
+			then
+				exit
+			else
+				if [ `date +%H%M` -gt "1859" ] ||  [ `date +%H%M` -lt "0600" ]
+				then
+					echo $'CLICK=0\nNIGHT=1' > $HOME/.night	
+				else
+					echo $'CLICK=0\nNIGHT=0' > $HOME/.night	
+				fi
+			fi
+			;;
+		*)
+			echo $'Please enter an argument!\ne.g.\nclick\ndisable\ncron'
+			exit
+			;;
+	esac
+	if [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
+	then
+		feh --bg-fill --randomize $HOME/Pictures/Wallpapers/Night/*	
+		if [[ $(ps aux | grep -i polybar) == *night* ]]
+		then
+			exit
+		else
+			$HOME/bin/polyrestart night
+		fi
+	else
+		feh --bg-fill --randomize $HOME/Pictures/Wallpapers/Morning/*	
+		if [[ $(ps aux | grep -i polybar | head -n +1 -) == *"polybar -q top" ]]
+		then
+			exit
+		else
+			$HOME/bin/polyrestart morning
+		fi
+	fi
+else
+	touch $HOME/.night
+	echo $'CLICK=0\nNIGHT=0' > $HOME/.night
+fi

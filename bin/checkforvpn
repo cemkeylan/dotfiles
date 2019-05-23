@@ -1,0 +1,8 @@
+#!/usr/bin/python
+
+import os
+
+if 'tun0' in os.popen('ip a').read():
+	print('Connected  ')
+else:
+	print('')

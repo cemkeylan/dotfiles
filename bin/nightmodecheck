@@ -1,0 +1,30 @@
+#!/bin/sh
+
+if [ -e $HOME/.night ]
+then
+	if [ $(head -n +1 $HOME/.night) = "CLICK=1" ]
+	then
+		CLICK="Overriden"
+	else
+		CLICK="0"
+	fi
+	if [ $(tail -n -1 $HOME/.night) = "NIGHT=0" ]
+	then
+		if [ $CLICK = "0" ]
+		then
+			echo ""
+		else
+			echo " $CLICK"
+		fi
+	elif [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
+	then
+		if [ $CLICK = "0" ]
+		then
+			echo ""
+		else
+			echo " $CLICK"
+		fi
+	fi
+else
+	echo There is a problem
+fi

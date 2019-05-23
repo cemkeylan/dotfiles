@@ -181,7 +181,14 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && mpv /
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
+# Change Wallpaper
+bindsym $altmod+w exec --no-startup-id $HOME/bin/wallset
 
+# Shutdown Command
+bindsym $altmod+Shift+n exec --no-startup-id $HOME/bin/yousure
+
+# Reboot Command
+bindsym $altmod+Shift+r exec --no-startup-id $HOME/bin/yousurereb
 
 
 ######## Application Shortcuts #########
@@ -207,13 +214,15 @@ bindsym $mod+d exec --no-startup-id rofi -show drun -theme Arc-Dark
 # Command Launcher
 bindsym $mod+u exec --no-startup-id rofi -show run -theme Arc-Dark
 
+# Launch Mutt
+bindsym $mod+Shift+m exec --no-startup-id $term -e "neomutt && exit"
 ########################################
 
 
 ########### Startup commands ###########
 
-# Set background
-exec --no-startup-id /home/cem/.fehbg
+# Disable (if override exists for nightmode and set background
+exec --no-startup-id $HOME/bin/nightmodetoggle disable
 
 # Start Nextcloud Sync Client
 exec --no-startup-id nextcloud
@@ -233,6 +242,3 @@ exec --no-startup-id nm-applet
 # Launch Policy Kit Daemon
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-
-#Change Wallpaper
-bindsym $altmod+w exec --no-startup-id $HOME/bin/wallset

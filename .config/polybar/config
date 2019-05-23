@@ -22,20 +22,57 @@ background-alt = #444
 foreground = #fff
 foreground-alt = #fff
 primary = #1a94ff 
+mornprim = #bdbdbd
 secondary = #e60053
 alert = #bd2c40
-barback = #aa222222
+barnight = #aa222222
+;barback = #026b5f
+;barback = #006f6f
+barback = #ffffff
 
 [bar/top]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
-;offset-x = 1%
-;offset-y = 1%
 radius = 0.0
 fixed-center = true 
 background = ${colors.barback}
+foreground = #222
+primary = ${colors.mornprim}
+power = ${colors.alert}
+
+line-size = 3
+line-color = #f00
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2 
+
+font-0 = fixed:pixelsize=10;2
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+font-3 = Material Icons:style=Regular:size=13;4 
+font-color = #000
+
+modules-left = rofi mlaunch mpd 
+modules-center = title
+modules-right = backlight pulseaudio wlan eth battery time powermenu
+
+tray-position = none 
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/topnight]
+width = 100%
+height = 27
+radius = 0.0
+fixed-center = true 
+background = ${colors.barnight}
 foreground = ${colors.foreground}
+primary = ${colors.primary}
+power = ${self.primary}
 
 line-size = 3
 line-color = #f00
@@ -61,14 +98,45 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/bottom]
-;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 27
-;offset-x = 1%
-;offset-y = 1%
 radius = 0.0
 fixed-center = true
 background = ${colors.barback}
+foreground = #222
+primary = ${colors.mornprim}
+bottom = true
+
+line-size = 3
+line-color = #f00
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10;2
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = siji:pixelsize=10;1
+font-3 = Material Icons:style=Regular:size=13;4 
+
+modules-left = i3 bspwm 
+modules-center = todo 
+modules-right = vpn nightmode xkeyboard filesystem rootfs memory cpu  
+
+tray-position = right
+tray-padding = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[bar/bottomnight]
+width = 100%
+height = 27
+radius = 0.0
+fixed-center = true
+background = ${colors.barnight}
 foreground = ${colors.foreground}
 bottom = true
 
@@ -88,22 +156,10 @@ font-3 = Material Icons:style=Regular:size=13;4
 
 modules-left = i3 bspwm 
 modules-center = todo 
-modules-right = xkeyboard filesystem rootfs memory cpu  
+modules-right = vpn nightmode xkeyboard filesystem rootfs memory cpu  
 
 tray-position = right
 tray-padding = 2
-;tray-background = #0063ff
-
-;wm-restack = bspwm
-;wm-restack = i3
-
-;override-redirect = true
-
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -116,7 +172,7 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${root.primary}
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -139,10 +195,10 @@ type = custom/text
 click-left = rofi -show drun -theme Arc-Dark
 click-middle = rofi -show drun -theme Arc-Dark
 click-right = rofi -show drun -theme Arc-Dark
-content = "  "
-content-suffix = " Navigate"
-content-suffix-foreground = #fff
-content-foreground = ${colors.primary}
+content-prefix = "  "
+content = " Navigate"
+;content-suffix-foreground = #fff
+;content-prefix-foreground = ${root.primary}
 
 [module/mlaunch]
 type = custom/text
@@ -151,7 +207,6 @@ click-right = ario
 click-left = ario
 click-middle = ario 
 content = 
-content-foreground = #fff
 
 [module/i3]
 type = internal/i3
@@ -164,11 +219,11 @@ wrapping-scroll = false
 
 label-mode-padding = 2
 label-mode-foreground = #000
-label-mode-background = ${colors.primary}
+label-mode-background = ${root.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${colors.primary}
+label-focused-background = ${root.primary}
 ;label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
@@ -176,7 +231,7 @@ label-focused-padding = ${module/bspwm.label-focused-padding}
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-label-unfocused-underline = ${colors.primary}
+label-unfocused-underline = ${root.primary}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index%
@@ -212,7 +267,6 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = " "
-format-prefix-foreground = ${colors.primary}
 
 label-layout = %layout%  |
 
@@ -229,9 +283,7 @@ mount-0 = /home
 
 format-mounted= /home : <label-mounted>
 label-mounted = %percentage_used%%
-format-mounted-foreground = ${colors.primary}
-label-mounted-foreground = #fff
-label-unmounted = %mountpoint% not mounted
+/abel-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.alert}
 
 
@@ -261,20 +313,29 @@ label-offline =
 label-song-maxlen = 50 
 label-song-ellipsis = true
 
+[module/nightmode]
+type = custom/script
+exec = $HOME/bin/nightmodecheck
+
+click-left = $HOME/bin/nightmodetoggle click
+click-middle = $HOME/bin/nightmodetoggle click
+click-right = $HOME/bin/nightmodetoggle click
+
+double-click-left = $HOME/bin/nightmodetoggle disable
+double-click-middle = $HOME/bin/nightmodetoggle disable
+double-click-right = $HOME/bin/nightmodetoggle disable
+
+
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = "CPU "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary} 
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = "RAM "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = ${colors.primary}
 label = %percentage_used%%
 
 [module/wlan]
@@ -282,43 +343,50 @@ type = internal/network
 interface = wlo1
 interval = 3.0
 
-format-connected = <label-connected>
-label-connected =  %essid% %local_ip%
+format-connected =  <label-connected>
+label-connected = %essid% %local_ip%
+format-connected-foreground = ${root.primary}
+;label-connected-foreground = #fff
 
-format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected =  disconnected
+format-disconnected-prefix = 
+label-disconnected = " disconnected"
+format-disconnected-prefix-foreground = ${root.primary}
+;label-disconnected-foreground = ${bar.foreground}
+
 
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${colors.primary}
+ramp-signal-foreground = ${root.primary}
+
+[module/vpn]
+type = custom/script
+exec = $HOME/bin/checkforvpn
+
+click-left = $HOME/bin/vpnswitch 
+click-right = $HOME/bin/vpnswitch
+click-middle = $HOME/bin/vpnswitch
 
 [module/eth]
 type = internal/network
 interface = eno1
 interval = 3.0
 
-format-connected-underline = ${colors.primary}
+format-connected-underline = ${root.primary}
 format-connected-prefix =  
-format-connected-prefix-foreground = ${colors.primary}
+format-connected-prefix-foreground = ${root.primary}
 label-connected = %local_ip%
-label-connected-foreground = ${colors.foreground-alt}
 
 format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/time]
 type = internal/date
 interval = 1
 
 date = " %A"
-date-alt =" %e/%B/%Y"
+date-alt =" %e %B %Y"
 
 time = " %H:%M"
 time-alt = " %H:%M:%S"
@@ -330,15 +398,14 @@ type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume> 
 label-volume = %percentage%%
-label-volume-foreground = ${colors.foreground}
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-ramp-volume-foreground = ${colors.primary}
+ramp-volume-foreground = ${root.primary}
 
 label-muted = 
-label-muted-foreground = ${colors.primary}
+label-muted-foreground = ${root.primary}
 
 [module/backlight]
 type = internal/backlight
@@ -351,7 +418,7 @@ ramp-3 = 
 ramp-2 = 
 ramp-1 = 
 ramp-0 = 
-ramp-foreground = ${colors.primary}
+ramp-foreground = ${root.primary}
 
 [module/battery]
 type = internal/battery
@@ -360,26 +427,26 @@ adapter = ADP1
 full-at = 98
 
 format-charging =  <label-charging>
-format-charging-underline = ${colors.primary} 
+format-charging-underline = ${root.primary} 
 
 format-discharging = <ramp-capacity> <label-discharging>
 
 format-full-prefix = " "
-format-full-prefix-foreground = ${colors.primary} 
-format-full-underline = ${colors.primary}
+format-full-prefix-foreground = ${root.primary} 
+format-full-underline = ${root.primary}
 
 ramp-capacity-0 =  
 ramp-capacity-1 = 
 ramp-capacity-2 =  
 ramp-capacity-3 = 
-ramp-capacity-3-foreground = ${colors.primary}
+ramp-capacity-3-foreground = ${root.primary}
 ramp-capacity-1-foreground = #ffaa00
 ramp-capacity-0-foreground = #ff383b
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-animation-charging-foreground = ${colors.primary}
+animation-charging-foreground = ${root.primary}
 animation-charging-framerate = 750
 
 animation-discharging-0 = 
@@ -397,11 +464,11 @@ format-spacing = 1
 
 label-open =   
 label-open-font = 4
-label-open-foreground = ${colors.primary}
+label-open-foreground = ${root.power}
 label-close = Cancel
-label-close-foreground = ${colors.primary}
+label-close-foreground = ${root.power}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${root.foreground}
 
 menu-0-0 = Reboot
 menu-0-0-exec = menu-open-1

@@ -1,6 +1,8 @@
-#
-# ~/.bashrc
-#
+#   _               _              
+#  | |__   __ _ ___| |__  _ __ ___ 
+#  | '_ \ / _` / __| '_ \| '__/ __|
+# _| |_) | (_| \__ \ | | | | | (__ 
+#(_)_.__/ \__,_|___/_| |_|_|  \___|
 
 [[ $- != *i* ]] && return
 
@@ -97,6 +99,10 @@ alias np='nano -w PKGBUILD'
 alias more=less
 alias ncmpcpp="ncmpcpp --port 6601"
 alias rm='rm -v'
+alias ccat="highlight"
+alias mutt="neomutt"
+alias cfb="vim $HOME/.bashrc"
+alias sb="source $HOME/.bashrc"
 
 xhost +local:root > /dev/null 2>&1
 
@@ -148,3 +154,6 @@ export PATH=/home/cem/.gem/ruby/2.6.0/bin/:$PATH
 export PATH=/home/cem/bin/:$PATH
 export PATH=/home/cem/.scripts/:$PATH
 export PATH=/usr/local/bin/:$PATH
+export VPNCONFIG=$HOME/auto.ovpn
+export EDITOR="vim"
+alias dot="cd $HOME/dotfiles"

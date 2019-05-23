@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $(echo $'No\nYes' | dmenu -p 'Are you sure you want to shutdown?') = 'Yes' ]
+then
+	shutdown -P now
+else
+	exit
+fi

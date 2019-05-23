@@ -1,10 +1,17 @@
 #!/bin/sh
 
 # Dmenu Script to change wallpaper
-export selection=$(ls $HOME/Pictures/Wallpapers | grep -i .jpg | dmenu)
+if [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
+then
+	export nightmode="Night"
+else
+	export nightmode="Morning"
+fi
+export selection=$(ls $HOME/Pictures/Wallpapers/$nightmode | grep -i .jpg | dmenu)
 if [$selection = ""]
 then
 	exit
 else
-	feh --bg-fill $HOME/Pictures/Wallpapers/$selection
+	feh --bg-fill $HOME/Pictures/Wallpapers/$nightmode/$selection
+	notify-send 'New wallpaper' 'Your wallpaper has been changed !'
 fi

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [[ $(ip a) == *tun0* ]]
+then
+	zensu kill $(pidof openvpn)
+else
+	zensu openvpn --config $VPNCONFIG &
+fi
+
