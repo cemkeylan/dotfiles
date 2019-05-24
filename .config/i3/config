@@ -170,19 +170,28 @@ bindsym $mod+r mode "resize"
 # Auto Locking
 exec --no-startup-id xautolock -time 10 -locker 'i3lock -i /home/cem/background2.png' 
 
-exec_always --no-startup-id /home/cem/bin/polyrestart
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && mpv /usr/share/sounds/LinuxMint/stereo/volume.oga #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && mpv /usr/share/sounds/LinuxMint/stereo/volume.oga #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && mpv /usr/share/sounds/LinuxMint/stereo/volume.oga # mute sound
 
+########### Nightmode Commands #########
+
+# Change Wallpaper
+bindsym $altmod+w exec --no-startup-id $HOME/bin/wallset
+
+# Change to a random wallpaper according to the theme
+bindsym $altmod+Shift+w exec --no-startup-id $HOME/bin/nightmodetoggle cron
+
+# Override Nightmode
+bindsym $altmod+e exec --no-startup-id $HOME/bin/nightmodetoggle click
+
+# Disable Nightmode override
+bindsym $altmod+Shift+e exec --no-startup-id $HOME/bin/nightmodetoggle disable
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
-
-# Change Wallpaper
-bindsym $altmod+w exec --no-startup-id $HOME/bin/wallset
 
 # Shutdown Command
 bindsym $altmod+Shift+n exec --no-startup-id $HOME/bin/yousure
@@ -190,6 +199,7 @@ bindsym $altmod+Shift+n exec --no-startup-id $HOME/bin/yousure
 # Reboot Command
 bindsym $altmod+Shift+r exec --no-startup-id $HOME/bin/yousurereb
 
+########################################
 
 ######## Application Shortcuts #########
 
@@ -216,6 +226,9 @@ bindsym $mod+u exec --no-startup-id rofi -show run -theme Arc-Dark
 
 # Launch Mutt
 bindsym $mod+Shift+m exec --no-startup-id $term -e "neomutt && exit"
+
+# Launch Calcurse
+bindsym $mod+c exec --no-startup-id $term -e "calcurse && exit"
 ########################################
 
 

@@ -22,12 +22,12 @@ background-alt = #444
 foreground = #fff
 foreground-alt = #fff
 primary = #1a94ff 
-mornprim = #bdbdbd
+mornprim = #222
 secondary = #e60053
 alert = #bd2c40
 ;barnight = #aa222222
 barnight = #aa282e44
-barback = #ffffff
+barback = #aaffde9b
 
 [bar/top]
 width = 100%
@@ -56,7 +56,7 @@ font-color = #000
 
 modules-left = rofi mlaunch mpd 
 modules-center = title
-modules-right = backlight pulseaudio wlan eth battery time powermenu
+modules-right = backlight pulseaudio wlan eth battery calcurse time powermenu
 
 tray-position = none 
 
@@ -89,7 +89,7 @@ font-3 = Material Icons:style=Regular:size=13;4
 
 modules-left = rofi mlaunch mpd 
 modules-center = title
-modules-right = backlight pulseaudio wlan eth battery time powermenu
+modules-right = backlight pulseaudio wlan eth battery calcurse time powermenu
 
 tray-position = none 
 
@@ -104,6 +104,7 @@ fixed-center = true
 background = ${colors.barback}
 foreground = #222
 primary = ${colors.mornprim}
+secondary = #ffa667
 bottom = true
 
 line-size = 3
@@ -139,6 +140,7 @@ background = ${colors.barnight}
 foreground = ${colors.foreground}
 primary = ${colors.primary}
 bottom = true
+secondary = ${self.primary}
 
 line-size = 3
 line-color = #f00
@@ -172,7 +174,7 @@ type = internal/bspwm
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${root.primary}
+label-focused-underline= ${root.secondary}
 label-focused-padding = 2
 
 label-occupied = %index%
@@ -219,11 +221,11 @@ wrapping-scroll = false
 
 label-mode-padding = 2
 label-mode-foreground = #000
-label-mode-background = ${root.primary}
+label-mode-background = ${root.secondary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-label-focused-background = ${root.primary}
+label-focused-background = ${root.secondary}
 ;label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
@@ -370,12 +372,20 @@ label-connected = %local_ip%
 
 format-disconnected =
 
+[module/calcurse]
+type = custom/text
+content = 
+
+click-left = terminator -e calcurse && exit
+click-middle = terminator -e calcurse && exit
+click-right = terminator -e calcurse && exit
+
 [module/time]
 type = internal/date
 interval = 1
 
-date = " %A"
-date-alt =" %e %B %Y"
+date = "%A"
+date-alt ="%e %B %Y"
 
 time = " %H:%M"
 time-alt = " %H:%M:%S"

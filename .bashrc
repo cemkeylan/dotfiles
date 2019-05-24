@@ -114,14 +114,14 @@ complete -cf sudo
 # it regains control.  #65623
 # http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
 shopt -s checkwinsize
-
+shopt -s autocd
 shopt -s expand_aliases
 
 # export QT_SELECT=4
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
-
+HISTSIZE= HISTFILESIZE=
 #
 # # ex - archive extractor
 # # usage: ex <file>
@@ -156,3 +156,5 @@ export PATH=/home/cem/bin/:$PATH
 export PATH=/home/cem/.scripts/:$PATH
 export PATH=/usr/local/bin/:$PATH
 export EDITOR="vim"
+export TERMINAL="terminator"
+export BROWSER="qutebrowser"
