@@ -219,10 +219,10 @@ bindsym $mod+Return exec $term
 bindsym $mod+m exec --no-startup-id $term -e "ncmpcpp --port 6601 && exit"
 
 # Application Launcher
-bindsym $mod+d exec --no-startup-id rofi -show drun -theme Arc-Dark
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # Command Launcher
-bindsym $mod+u exec --no-startup-id rofi -show run -theme Arc-Dark
+bindsym $mod+u exec --no-startup-id dmenu_run
 
 # Launch Mutt
 bindsym $mod+Shift+m exec --no-startup-id $term -e "neomutt && exit"

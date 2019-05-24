@@ -54,7 +54,7 @@ font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 font-color = #000
 
-modules-left = rofi mlaunch mpd 
+modules-left = dmenu mlaunch mpd 
 modules-center = title
 modules-right = backlight pulseaudio wlan eth battery calcurse time powermenu
 
@@ -87,7 +87,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 
-modules-left = rofi mlaunch mpd 
+modules-left = dmenu mlaunch mpd 
 modules-center = title
 modules-right = backlight pulseaudio wlan eth battery calcurse time powermenu
 
@@ -191,12 +191,12 @@ label-empty-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
-[module/rofi]
+[module/dmenu]
 type = custom/text
 
-click-left = rofi -show drun -theme Arc-Dark
-click-middle = rofi -show drun -theme Arc-Dark
-click-right = rofi -show drun -theme Arc-Dark
+click-left = i3-dmenu-desktop 
+click-middle = i3-dmenu-desktop 
+click-right = i3-dmenu-desktop 
 content-prefix = "  "
 content = " Navigate"
 ;content-suffix-foreground = #fff
