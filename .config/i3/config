@@ -13,10 +13,14 @@
 # Terminal
 set $term terminator
 
+# Browser
 set $brow qutebrowser
 
 # File Manager
-set $fm terminator -e "lf && exit"
+set $fm $term -e "lf && exit"
+
+# Music Player
+set $music $term -e "ncmpcpp --port 6601 && exit"
 
 ###################################
 
@@ -212,7 +216,7 @@ bindsym $mod+o exec $brow
 bindsym $mod+Return exec $term
 
 # Launch Console Music Player
-bindsym $mod+m exec --no-startup-id $term -e "ncmpcpp --port 6601 && exit"
+bindsym $mod+m exec --no-startup-id $music
 
 # Application Launcher
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
@@ -251,3 +255,7 @@ exec --no-startup-id nm-applet
 # Launch Policy Kit Daemon
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+############# Overrides ################
+# This point onwards will be set by
+# CARBS
+# Feel free to change those
