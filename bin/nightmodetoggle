@@ -18,7 +18,8 @@ then
 			NIGHT=$(tail -n -1 $HOME/.night)
 			echo 'CLICK=0' > $HOME/.night
 			echo $NIGHT >> $HOME/.night
-			nightmodetoggle cron
+			$HOME/bin/nightmodetoggle cron
+			exit
 			;;
 		"cron")
 			if [ $(head -n +1 $HOME/.night) = "CLICK=1" ]

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo $HOME/.config/polybar/config | entr -p -n /home/cem/bin/polyrestart &>/dev/null &
+echo $HOME/.config/polybar/config | entr -p -n /home/cem/bin/polyrestart >/dev/null 2>&1 &
 vim $HOME/.config/polybar/config
-sleep 0.5
+sleep 1
 kill $(pidof entr)
