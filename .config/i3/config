@@ -13,11 +13,7 @@
 # Terminal
 set $term terminator
 
-# First Browser
-set $fbrow myterminalkidnappedmesendhelpicanonlyusequtebrowsernow
-
-# Secondary Browser
-set $sbrow qutebrowser
+set $brow qutebrowser
 
 # File Manager
 set $fm terminator -e "lf && exit"
@@ -210,7 +206,7 @@ bindsym $mod+n exec $fm
 # My terminal kidnapped me call 911
 
 # Launch Secondary Browser
-bindsym $mod+o exec $sbrow
+bindsym $mod+o exec $brow
 
 # Launch Terminal
 bindsym $mod+Return exec $term
