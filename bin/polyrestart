@@ -1,20 +1,23 @@
-#!/bin/bash
+#!/bin/sh
 
-if [[ $(ps aux) == *polybar* ]]
-then
-	kill $(pidof polybar)
-fi
-sleep 0.5
+case $(ps aux) in
+	*polybar*)
+		kill $(pidof polybar)
+		;;
+	*)
+		;;
+esac
+sleep 1
 case $1 in
 	morning)
-		polybar -q top &>/dev/null &
-		sleep 0.5
-		polybar -q bottom &>/dev/null &
+		polybar -q top >/dev/null 2>&1 &
+		sleep 1
+		polybar -q bottom >/dev/null 2>&1 &
 		;;
 	night)
-		polybar -q topnight &>/dev/null &
-		sleep 0.5
-		polybar -q bottomnight &>/dev/null &
+		polybar -q topnight >/dev/null 2>&1 &
+		sleep 1
+		polybar -q bottomnight >/dev/null 2>&1 &
 		;;
 	*)
 		if [ -e $HOME/.night ]
