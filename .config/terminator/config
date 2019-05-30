@@ -23,3 +23,9 @@
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
+  [[notintransparentmood]]
+    background_color = "#282e44"
+    cursor_color = "#aaaaaa"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False

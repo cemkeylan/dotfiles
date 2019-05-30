@@ -1,12 +1,17 @@
 #!/bin/sh
 
+
 git clone https://gitlab.cemkeylan.com/cemkeylan/dotfiles.git
 cd dotfiles
+BASE=$PWD
 if [ $RCUP = "YES" ]
 then
 	cp -u -v $PWD/.bashrc $HOME/.bashrc
 fi
-cp -u -v $PWD/.vimrc $HOME/.vimrc
+if [ $VIMUP = "YES" ]
+then
+	cp -u -v $PWD/.vimrc $HOME/.vimrc
+fi
 cp -u -v -r $PWD/bin $HOME/bin
 declare -i OVERRIDE
 OVERRIDE=$(grep -nr "Feel free to" $HOME/.config/i3/config | cut -d : -f 1)+1
@@ -14,3 +19,5 @@ tail -n +$OVERRIDE $HOME/.config/i3/config >> $PWD/.config/i3/config
 cp -u -v $PWD/.config/i3/config $HOME/.config/i3/config
 cp -u -v $PWD/.config/terminator/config $HOME/.config/terminator/config
 cp -u -v $PWD/.config/polybar/config $HOME/.config/polybar/config
+echo "Cleaning up"
+cd $BASE/.. && rm -r dotfiles
