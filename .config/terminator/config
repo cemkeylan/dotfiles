@@ -1,6 +1,9 @@
 [global_config]
 [keybindings]
   next_profile = <Primary><Shift>p
+  zoom_in = <Shift><Super>j
+  zoom_normal = <Shift><Super>h
+  zoom_out = <Shift><Super>k
 [layouts]
   [[default]]
     [[[child1]]]

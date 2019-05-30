@@ -98,6 +98,8 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
 alias ncmpcpp="ncmpcpp --port 6601"
+alias c="clear"
+alias l="ls"
 alias rm='rm -v'
 alias ccat="highlight"
 alias mutt="neomutt"
@@ -140,6 +142,7 @@ ex ()
       *.zip)       unzip $1     ;;
       *.Z)         uncompress $1;;
       *.7z)        7z x $1      ;;
+      *.tar.xz)    tar xJf $1   ;;
       *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
@@ -149,12 +152,15 @@ ex ()
 
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
-export PATH=/home/cem/.gem/ruby/2.6.0/bin/:$PATH
+export PATH=$HOME/.gem/ruby/2.6.0/bin/:$PATH
 
 # Personal Scripts
-export PATH=/home/cem/bin/:$PATH
-export PATH=/home/cem/.scripts/:$PATH
+export PATH=$HOME/bin/:$PATH
+export PATH=$HOME/.scripts/:$PATH
 export PATH=/usr/local/bin/:$PATH
-export EDITOR="vim"
+export EDITOR="/usr/bin/vim"
 export TERMINAL="terminator"
 export BROWSER="qutebrowser"
+export XDG_CONFIG_HOME=$HOME/.config
+export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
+set -o vi
