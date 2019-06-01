@@ -1,0 +1,9 @@
+#!/bin/sh
+
+VID=$(ls $HOME/.watchlater | dmenu -p "What will you watch")
+if [ "$VID" = "" ]
+then
+	exit
+else
+	mpv $HOME/.watchlater/"$VID" >/dev/null 2>&1 &
+fi

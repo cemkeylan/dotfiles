@@ -123,7 +123,7 @@ font-3 = Material Icons:style=Regular:size=13;4
 
 modules-left = i3 bspwm 
 modules-center = todo 
-modules-right = nightmode xkeyboard filesystem rootfs memory cpu  
+modules-right = wl nightmode xkeyboard filesystem rootfs memory cpu  
 
 tray-position = right
 tray-padding = 2
@@ -158,7 +158,7 @@ font-3 = Material Icons:style=Regular:size=13;4
 
 modules-left = i3 bspwm 
 modules-center = todo 
-modules-right = nightmode xkeyboard filesystem rootfs memory cpu  
+modules-right = wl nightmode xkeyboard filesystem rootfs memory cpu  
 
 tray-position = right
 tray-padding = 2
@@ -168,6 +168,10 @@ cursor-scroll = ns-resize
 
 [module/title]
 type = internal/xwindow
+
+format = <label>
+label = %title%
+label-maxlen = 80
 
 [module/bspwm]
 type = internal/bspwm
@@ -388,6 +392,15 @@ exec = $HOME/bin/checkmail
 click-left = terminator -e "neomutt && exit"
 click-middle = terminator -e "neomutt && exit"
 click-right = terminator -e "neomutt && exit"
+
+[module/wl]
+; Simple script to read my .watchlater directory
+type = custom/script
+exec = echo -e " $(ls $HOME/.watchlater | wc -l)"
+
+click-left = $HOME/bin/dwatch
+click-middle = $HOME/bin/dwatch
+click-right = $HOME/bin/dwatch
 
 [module/time]
 type = internal/date
