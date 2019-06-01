@@ -33,7 +33,7 @@ set $altmod Mod4
 # Configure i3-gaps
 gaps inner 15
 gaps outer 15
-for_window [class=".*"] border pixel 0 
+for_window [class=".*"] border pixel 2 
 
 # Font
 font pango:monospace 11 

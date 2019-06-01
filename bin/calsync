@@ -1,0 +1,8 @@
+#!/bin/bash
+
+OP=$(calcurse-caldav 2>/dev/null)
+TEST=$'0 items imported, 0 items removed locally.\n0 items exported, 0 items removed from the server.'
+if [ "$OP" != $"$TEST" ]
+then
+	notify-send "Calendar Sync" "$OP"
+fi

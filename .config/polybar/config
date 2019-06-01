@@ -56,7 +56,7 @@ font-color = #000
 
 modules-left = dmenu mlaunch mpd 
 modules-center = title
-modules-right = backlight pulseaudio wlan eth battery calcurse time powermenu
+modules-right = backlight pulseaudio wlan eth battery mailcheck calcurse time powermenu
 
 tray-position = none 
 
@@ -89,7 +89,7 @@ font-3 = Material Icons:style=Regular:size=13;4
 
 modules-left = dmenu mlaunch mpd 
 modules-center = title
-modules-right = backlight pulseaudio wlan eth battery calcurse time powermenu
+modules-right = backlight pulseaudio wlan eth battery mailcheck calcurse time powermenu
 
 tray-position = none 
 
@@ -379,6 +379,15 @@ content = 
 click-left = terminator -e calcurse && exit
 click-middle = terminator -e calcurse && exit
 click-right = terminator -e calcurse && exit
+
+[module/mailcheck]
+; You should probably delete this
+type = custom/script
+exec = $HOME/bin/checkmail
+
+click-left = terminator -e "neomutt && exit"
+click-middle = terminator -e "neomutt && exit"
+click-right = terminator -e "neomutt && exit"
 
 [module/time]
 type = internal/date
