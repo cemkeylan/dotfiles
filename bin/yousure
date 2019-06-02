@@ -2,7 +2,7 @@
 
 if [ $(printf 'No\nYes' | dmenu -p 'Are you sure you want to shutdown?') = 'Yes' ]
 then
-	shutdown -P now
+	systemctl poweroff
 else
 	exit
 fi

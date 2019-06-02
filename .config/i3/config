@@ -168,7 +168,7 @@ bindsym $mod+r mode "resize"
 
 
 # Auto Locking
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -i /home/cem/background2.png' 
+exec --no-startup-id xautolock -time 10 -locker 'i3lock-fancy'
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && mpv /usr/share/sounds/LinuxMint/stereo/volume.oga #increase sound volume

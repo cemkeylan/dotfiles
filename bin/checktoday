@@ -1,0 +1,10 @@
+#!/bin/sh
+
+COMM=$(calcurse --appointment)
+
+if [ "$COMM" = "" ]
+then
+	exit
+else
+	notify-send "Today" "$COMM"
+fi

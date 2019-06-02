@@ -123,7 +123,8 @@ shopt -s expand_aliases
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
-HISTSIZE= HISTFILESIZE=
+HISTSIZE=-1 
+HISTFILESIZE=-1
 #
 # # ex - archive extractor
 # # usage: ex <file>
@@ -164,3 +165,5 @@ export BROWSER="qutebrowser"
 export XDG_CONFIG_HOME=$HOME/.config
 export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
 set -o vi
+export VIMUP=TRUE
+export CALCURSE=TRUE

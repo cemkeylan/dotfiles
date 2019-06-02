@@ -380,9 +380,9 @@ format-disconnected =
 type = custom/text
 content = 
 
-click-left = terminator -e calcurse && exit
-click-middle = terminator -e calcurse && exit
-click-right = terminator -e calcurse && exit
+click-left = notify-send "Weekly Summary" "$(calcurse -Q --days 7)"
+click-middle = notify-send "Weekly Summary" "$(calcurse -Q --days 7)"
+click-right = notify-send "Weekly Summary" "$(calcurse -Q --days 7)"
 
 [module/mailcheck]
 ; You should probably delete this

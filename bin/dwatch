@@ -6,4 +6,5 @@ then
 	exit
 else
 	mpv $HOME/.watchlater/"$VID" >/dev/null 2>&1 &
+	notify-send -u low "MPV" "Now Watching:\n$VID"
 fi

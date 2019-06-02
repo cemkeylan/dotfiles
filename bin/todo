@@ -1,8 +1,13 @@
 #!/bin/sh
 
-if [ -s $HOME/todo.txt ] 
+if [ "$CALCURSE" = "" ]
 then
-	echo "$(head -n 1 $HOME/todo.txt) "
+	if [ -s $HOME/todo.txt ] 
+	then
+		echo "$(head -n 1 $HOME/todo.txt) "
+	else
+		echo "Nothing to do!"
+	fi
 else
-	echo "Nothing to do!"
+	calcurse -Q | sed 1d - | head -n 1 - | cut -c 4-
 fi
