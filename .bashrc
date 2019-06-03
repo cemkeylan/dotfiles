@@ -166,4 +166,3 @@ export XDG_CONFIG_HOME=$HOME/.config
 export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
 set -o vi
 export VIMUP=TRUE
-export CALCURSE=TRUE

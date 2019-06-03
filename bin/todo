@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$CALCURSE" = "" ]
+if [ "$(pacman -T calcurse)" = "calcurse" ]
 then
 	if [ -s $HOME/todo.txt ] 
 	then
