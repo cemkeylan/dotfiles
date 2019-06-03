@@ -33,6 +33,40 @@ colors() {
 	done
 }
 
+# Make colorcoding available for everyone
+
+Black='\e[0;30m'        # Black
+Red='\e[0;31m'          # Red
+Green='\e[0;32m'        # Green
+Yellow='\e[0;33m'       # Yellow
+Blue='\e[0;34m'         # Blue
+Purple='\e[0;35m'       # Purple
+Cyan='\e[0;36m'         # Cyan
+White='\e[0;37m'        # White
+
+# Bold
+BBlack='\e[1;30m'       # Black
+BRed='\e[1;31m'         # Red
+BGreen='\e[1;32m'       # Green
+BYellow='\e[1;33m'      # Yellow
+BBlue='\e[1;34m'        # Blue
+BPurple='\e[1;35m'      # Purple
+BCyan='\e[1;36m'        # Cyan
+BWhite='\e[1;37m'       # White
+
+# Background
+On_Black='\e[40m'       # Black
+On_Red='\e[41m'         # Red
+On_Green='\e[42m'       # Green
+On_Yellow='\e[43m'      # Yellow
+On_Blue='\e[44m'        # Blue
+On_Purple='\e[45m'      # Purple
+On_Cyan='\e[46m'        # Cyan
+On_White='\e[47m'       # White
+
+NC="\e[m"               # Color Reset
+
+
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 # Change the window title of X terminals
@@ -74,7 +108,7 @@ if ${use_color} ; then
 	if [[ ${EUID} == 0 ]] ; then
 		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
 	else
-		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
+		PS1="${BCyan}\u${BGreen}@${BCyan}\h${BWhite} \W${BGreen} \$\[\033[00m\] "
 	fi
 
 	alias ls='ls --color=auto'
@@ -155,14 +189,16 @@ ex ()
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 export PATH=$HOME/.gem/ruby/2.6.0/bin/:$PATH
 
+# Default Applications and Configuration Directory
+export EDITOR="/usr/bin/nvim"
+export TERMINAL="terminator"
+export BROWSER="qutebrowser"
+export XDG_CONFIG_HOME=$HOME/.config
+
 # Personal Scripts
 export PATH=$HOME/bin/:$PATH
 export PATH=$HOME/.scripts/:$PATH
 export PATH=/usr/local/bin/:$PATH
-export EDITOR="/usr/bin/vim"
-export TERMINAL="terminator"
-export BROWSER="qutebrowser"
-export XDG_CONFIG_HOME=$HOME/.config
 export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
 set -o vi
 export VIMUP=TRUE

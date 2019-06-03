@@ -229,6 +229,12 @@ bindsym $mod+Shift+m exec --no-startup-id $term -e "neomutt && exit"
 
 # Launch Calcurse
 bindsym $mod+c exec --no-startup-id $term -e "calcurse && exit"
+
+# Mount USB
+bindsym $altmod+m exec --no-startup-id $HOME/bin/dmenumount
+
+# Unmount USB
+bindsym $altmod+u exec --no-startup-id $HOME/bin/dmenuumount
 ########################################
 
 

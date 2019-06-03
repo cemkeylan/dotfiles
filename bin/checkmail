@@ -2,7 +2,7 @@
 
 if [ -d $HOME/.local/share/mail ]
 then
-	echo -e " $(echo "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')$(cat /tmp/imapsyncicon_$USER 2>/dev/null)"
+	echo -e " $(echo "$(du -a ~/.local/share/mail/*/INBOX/new/* 2>/dev/null | sed -n '$=')$(cat /tmp/imapsyncicon_$USER 2>/dev/null || echo 0)"
 	) "
 else
 	Mailbox cannot be found

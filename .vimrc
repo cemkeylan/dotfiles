@@ -136,3 +136,5 @@ endif
 set number relativenumber
 execute pathogen#infect()
 filetype plugin indent on
+vnoremap <silent><Leader>y "yy <Bar> :call system('xclip', @y)<CR>
+set clipboard=unnamedplus
