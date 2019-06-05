@@ -259,10 +259,6 @@ exec = $HOME/bin/todo
 format = <label>
 label = TODO: %output%
 
-click-right = $HOME/bin/todorm
-click-middle = $HOME/bin/todorm
-click-left = $HOME/bin/todorm
-
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%

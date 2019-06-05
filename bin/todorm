@@ -2,4 +2,8 @@
 
 # Removes the first line of todo.txt
 
-tail -n +2 $HOME/todo.txt > $HOME/todo.txt.tmp && mv $HOME/todo.txt.tmp $HOME/todo.txt
+tradtodo() {\
+	tail -n +2 $HOME/todo.txt > $HOME/todo.txt.tmp && mv $HOME/todo.txt.tmp $HOME/todo.txt
+}
+
+pacman -Q calcurse >/dev/null 2>&1 && echo "There is currently no way to remove an entry from calcurse" || tradtodo

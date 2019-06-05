@@ -2,6 +2,4 @@
 
 # Add to todo.txt file
 
-echo $1 | tee -a $HOME/todo.txt
-
-
+pacman -Q calcurse >/dev/null 2>&1 && echo "There is currently no way to add a todo entry to Calcurse" || echo $1 | tee -a $HOME/todo.txt
