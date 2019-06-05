@@ -1,0 +1,10 @@
+#!/bin/bash
+
+choice="$(printf "Suspend\nShutdown\nReboot" | dmenu -l 3 -p "Power Menu")"
+
+case $choice in
+	Shutdown) $HOME/bin/yousure ;;
+	Suspend) systemctl suspend ;;
+	Reboot) $HOME/bin/yousurereb ;;
+	*) exit ;;
+esac

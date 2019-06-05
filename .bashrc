@@ -108,7 +108,7 @@ if ${use_color} ; then
 	if [[ ${EUID} == 0 ]] ; then
 		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
 	else
-		PS1="${BCyan}\u${BGreen}@${BCyan}\h${BWhite} \W${BGreen} \$\[\033[00m\] "
+		PS1="\[${BYellow}\]\u\[${BGreen}\]@\[${BCyan}\]\h\[${BWhite}\] \[${BRed}\]\W\[${BWhite}\]\[${BGreen}\] \[${BCyan}\]->\[${NC}\] "
 	fi
 
 	alias ls='ls --color=auto'
@@ -140,6 +140,7 @@ alias mutt="neomutt"
 alias cfb="vim $HOME/.bashrc"
 alias sb="source $HOME/.bashrc"
 alias dot="cd $HOME/dotfiles"
+alias vim="nvim"                         # Lol I forget typing nvim
 
 xhost +local:root > /dev/null 2>&1
 

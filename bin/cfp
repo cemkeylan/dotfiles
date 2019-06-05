@@ -3,4 +3,5 @@
 echo $HOME/.config/polybar/config | entr -p -n /home/cem/bin/polyrestart >/dev/null 2>&1 &
 vim $HOME/.config/polybar/config
 sleep 1
+[ -z "$(pidof entr)" ] && exit 
 kill $(pidof entr)

@@ -16,16 +16,20 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#282e44"
-    background_darkness = 0.76
+    background_color = "#282a36"
+    background_darkness = 0.92
     background_type = transparent
     cursor_color = "#aaaaaa"
+    cursor_shape = ibeam
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
+    use_system_font = False
   [[notintransparentmood]]
-    background_color = "#282e44"
+    background_color = "#282a36"
     cursor_color = "#aaaaaa"
+    cursor_shape = ibeam
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
+    use_system_font = False

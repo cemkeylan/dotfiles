@@ -9,5 +9,5 @@ then
 		echo "Nothing to do!"
 	fi
 else
-	calcurse -Q | sed 1d - | head -n 1 - | cut -c 4-
+	calcurse -t | sed 1d - | head -n 1 - | cut -c 4-
 fi

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VID=$(ls $HOME/.watchlater | dmenu -p "What will you watch")
+VID=$(ls $HOME/.watchlater | dmenu -l 30 -p "What will you watch")
 if [ "$VID" = "" ]
 then
 	exit

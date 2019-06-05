@@ -1,0 +1,11 @@
+#!/bin/sh
+
+answer="$(mpc)"
+case $answer in
+	*playing*)
+		mpc pause
+		;;
+	*paused*)
+		mpc play
+		;;
+esac

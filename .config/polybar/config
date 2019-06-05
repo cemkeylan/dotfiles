@@ -209,9 +209,9 @@ content = " Navigate"
 [module/mlaunch]
 type = custom/text
 
-click-right = terminator -e "ncmpcpp --port 6601 && exit" 
-click-left = terminator -e "ncmpcpp --port 6601 && exit"
-click-middle = terminator -e "ncmpcpp --port 6601 && exit"
+click-right = terminator -e "ncmpcpp && exit" 
+click-left = terminator -e "ncmpcpp && exit"
+click-middle = terminator -e "ncmpcpp && exit"
 content = 
 
 [module/i3]
@@ -297,7 +297,7 @@ type = internal/mpd
 format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next> <label-time>
 interval = 0.5 
 host = localhost
-port = 6601
+port = 6600
 
 label-time = "   %elapsed% / %total%"
 label-song = %artist% - %title%
@@ -380,9 +380,9 @@ format-disconnected =
 type = custom/text
 content = 
 
-click-left = notify-send "Weekly Summary" "$(calcurse -Q --days 7)"
-click-middle = notify-send "Weekly Summary" "$(calcurse -Q --days 7)"
-click-right = notify-send "Weekly Summary" "$(calcurse -Q --days 7)"
+click-left = notify-send "Weekly Summary" "$(echo -e Today: && date && printf "\nTODO:\n" && calcurse -Q --days 10 --filter-uncompleted | sed "/to do:/d" -)"
+click-middle = notify-send "Weekly Summary" "$(echo -e Today: && date && printf "\nTODO:\n" && calcurse -Q --days 10 --filter-uncompleted | sed "/to do:/d" -)"
+click-right = notify-send "Weekly Summary" "$(echo -e Today: && date && printf "\nTODO:\n" && calcurse -Q --days 10 --filter-uncompleted | sed "/to do:/d" -)"
 
 [module/mailcheck]
 ; You should probably delete this
@@ -477,32 +477,14 @@ animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
 [module/powermenu]
-type = custom/menu
+type = custom/text
 
-expand-right = true
+content =   
+content-foreground = ${root.power}
 
-format-spacing = 1
-
-label-open =   
-label-open-font = 4
-label-open-foreground = ${root.power}
-label-close = Cancel
-label-close-foreground = ${root.power}
-label-separator = |
-label-separator-foreground = ${root.foreground}
-
-menu-0-0 = Reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = Halt
-menu-0-1-exec = menu-open-2
-menu-0-2 = Suspend
-menu-0-2-exec = systemctl suspend
-
-menu-1-0 = Confirm Reboot 
-menu-1-0-exec = reboot
-
-menu-2-0 = Confirm Halt 
-menu-2-0-exec = shutdown -P now 
+click-left = $HOME/bin/sdmenu
+click-middle = $HOME/bin/sdmenu
+click-right = $HOME/bin/sdmenu
 
 [settings]
 screenchange-reload = true
