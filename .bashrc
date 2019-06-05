@@ -33,7 +33,8 @@ colors() {
 	done
 }
 
-# Make colorcoding available for everyone
+# Make colorcoding available for everyone 
+# (originally from Anarchy Linux but I thought it was nice/effortless so I got it)
 
 Black='\e[0;30m'        # Black
 Red='\e[0;31m'          # Red
