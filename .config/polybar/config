@@ -345,7 +345,7 @@ interface = wlo1
 interval = 3.0
 
 format-connected-prefix = 
-label-connected = %essid% %local_ip%
+label-connected = " %essid% %local_ip%"
 format-connected-prefix-foreground = ${root.primary}
 
 format-disconnected-prefix = 
