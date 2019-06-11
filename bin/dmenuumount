@@ -5,9 +5,9 @@
 
 unmountusb() {
 	[ -z "$drives" ] && exit
-	chosen=$(echo "$drives" | dmenu -i -p "Unmount which drive?" | awk '{print $1}')
+	chosen=$(echo "$drives" | dmenu -l 15 -i -p "Unmount which drive?" | awk '{print $1}')
 	[ -z "$chosen" ] && exit
-	sudo -A umount "$chosen" && notify-send "USB unmounting" "$chosen unmounted."
+	sudo -A umount -R "$chosen" && notify-send "USB unmounting" "$chosen unmounted."
 	}
 
 drives=$(lsblk -nrpo "name,type,size,mountpoint" | awk '$2=="part"&&$4!~/\/boot|\/home$|SWAP/&&length($4)>1{printf "%s (%s)\n",$4,$3}')

@@ -11,16 +11,16 @@
 ######## Default Programs #########
 
 # Terminal
-set $term terminator
+set $term st 
 
 # Browser
 set $brow qutebrowser
 
 # File Manager
-set $fm terminator -e "lf && exit"
+set $fm st -e lf && exit
 
 # Music Player
-set $music terminator -e "ncmpcpp && exit"
+set $music st -e ncmpcpp && exit
 
 ###################################
 
@@ -168,7 +168,7 @@ bindsym $mod+r mode "resize"
 
 
 # Auto Locking
-exec --no-startup-id xautolock -time 10 -locker 'i3lock-fancy'
+exec --no-startup-id xautolock -time 10 -locker 'betterlockscreen --lock'
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && mpv /usr/share/sounds/LinuxMint/stereo/volume.oga #increase sound volume
@@ -216,22 +216,22 @@ bindsym $mod+n exec $fm
 bindsym $mod+o exec $brow
 
 # Launch Terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec st
 
 # Launch Console Music Player
 bindsym $mod+m exec --no-startup-id $music
 
 # Application Launcher
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -l 15'
 
 # Command Launcher
-bindsym $mod+u exec --no-startup-id dmenu_run
+bindsym $mod+u exec --no-startup-id dmenu_run -l 15
 
 # Launch Mutt
-bindsym $mod+Shift+m exec --no-startup-id $term -e "neomutt && exit"
+bindsym $mod+Shift+m exec --no-startup-id $term -e neomutt && exit
 
 # Launch Calcurse
-bindsym $mod+c exec --no-startup-id $term -e "calcurse && exit"
+bindsym $mod+c exec --no-startup-id $term -e calcurse && exit
 
 # Mount USB
 bindsym $altmod+m exec --no-startup-id $HOME/bin/dmenumount

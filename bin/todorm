@@ -1,9 +1,8 @@
 #!/bin/sh
 
-# Removes the first line of todo.txt
-
-tradtodo() {\
-	tail -n +2 $HOME/todo.txt > $HOME/todo.txt.tmp && mv $HOME/todo.txt.tmp $HOME/todo.txt
-}
-
-pacman -Q calcurse >/dev/null 2>&1 && echo "There is currently no way to remove an entry from calcurse" || tradtodo
+if [ -z $(pacman -T calcurse) ]
+then
+	tail -n +2 $HOME/.calcurse/todo > $HOME/.calcurse/todo.tmp && mv $HOME/.calcurse/todo.tmp $HOME/.calcurse/todo
+else
+        tail -n +2 $HOME/todo.txt > $HOME/todo.txt.tmp && mv $HOME/todo.txt.tmp $HOME/todo.txt
+fi

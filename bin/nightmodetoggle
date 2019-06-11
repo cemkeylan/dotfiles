@@ -42,6 +42,8 @@ then
 	if [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
 	then
 		feh --bg-fill --randomize $HOME/Pictures/Wallpapers/Night/*	
+		pidof betterlockscreen | xargs -r kill
+		cat $HOME/.fehbg | awk '{print $3}' | xargs -r betterlockscreen -u >/dev/null 2>&1 &
 		case $(ps aux | grep -i polybar) in
 			*night*)
 				exit
@@ -52,6 +54,8 @@ then
 		esac
 	else
 		feh --bg-fill --randomize $HOME/Pictures/Wallpapers/Morning/*	
+		pidof betterlockscreen | xargs -r kill
+		cat $HOME/.fehbg | awk '{print $3}' | xargs -r betterlockscreen -u >/dev/null 2>&1 &
 		case $(ps aux | grep -i polybar | head -n +1 -) in
 			*"polybar -q top")
 				exit

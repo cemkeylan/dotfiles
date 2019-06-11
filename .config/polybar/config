@@ -54,9 +54,9 @@ font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 font-color = #000
 
-modules-left = dmenu mlaunch mpd 
-modules-center = title
-modules-right = backlight pulseaudio wlan eth battery mailcheck calcurse time powermenu
+modules-left = time
+modules-center = mpd 
+modules-right = backlight pulseaudio wlan eth battery mailcheck calcurse powermenu
 
 tray-position = none 
 
@@ -87,9 +87,9 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 
-modules-left = dmenu mlaunch mpd 
-modules-center = title
-modules-right = backlight pulseaudio wlan eth battery mailcheck calcurse time powermenu
+modules-left = time
+modules-center = mpd 
+modules-right = backlight pulseaudio wlan eth battery mailcheck calcurse powermenu
 
 tray-position = none 
 
@@ -121,7 +121,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 
-modules-left = i3 bspwm 
+modules-left = i3 bspwm title
 modules-center = todo 
 modules-right = wl nightmode xkeyboard filesystem rootfs memory cpu  
 
@@ -156,7 +156,7 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 
-modules-left = i3 bspwm 
+modules-left = i3 bspwm title
 modules-center = todo 
 modules-right = wl nightmode xkeyboard filesystem rootfs memory cpu  
 
@@ -194,17 +194,6 @@ label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
-
-[module/dmenu]
-type = custom/text
-
-click-left = i3-dmenu-desktop 
-click-middle = i3-dmenu-desktop 
-click-right = i3-dmenu-desktop 
-content-prefix = "  "
-content = " Navigate"
-;content-suffix-foreground = #fff
-;content-prefix-foreground = ${root.primary}
 
 [module/mlaunch]
 type = custom/text
@@ -290,23 +279,24 @@ label-unmounted-foreground = ${colors.alert}
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next> <label-time>
+format-online = <label-song> <label-time>
+;format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next> <label-time>
 interval = 0.5 
 host = localhost
 port = 6600
 
 label-time = "   %elapsed% / %total%"
 label-song = %artist% - %title%
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next =  
-icon-prev-foreground = #00aaff
-icon-next-foreground = #00aaff
-icon-stop-foreground = #ff0000
-icon-play-foreground = #00aa00
-icon-pause-foreground = #ecec00
+;icon-prev = 
+;icon-stop = 
+;icon-play = 
+;icon-pause = 
+;icon-next =  
+;icon-prev-foreground = #00aaff
+;icon-next-foreground = #00aaff
+;icon-stop-foreground = #ff0000
+;icon-play-foreground = #00aa00
+;icon-pause-foreground = #ecec00
 
 format-offline = <label-offline>
 label-offline = 
@@ -402,13 +392,9 @@ click-right = $HOME/bin/dwatch
 type = internal/date
 interval = 1
 
-date = "%A"
-date-alt ="%e %B %Y"
+time = "  %H:%M"
 
-time = " %H:%M"
-time-alt = " %H:%M:%S"
-
-label = %date% %time% 
+label = %time% 
 
 [module/pulseaudio]
 type = internal/pulseaudio

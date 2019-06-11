@@ -13,5 +13,6 @@ then
 	exit
 else
 	feh --bg-fill $HOME/Pictures/Wallpapers/$nightmode/$selection
+	cat $HOME/.fehbg | awk '{print $3}' | xargs -r betterlockscreen -u >/dev/null 2>&1 &
 	notify-send 'New wallpaper' 'Your wallpaper has been changed !'
 fi
