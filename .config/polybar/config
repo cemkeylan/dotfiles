@@ -411,7 +411,7 @@ label-muted = 
 label-muted-foreground = ${root.primary}
 
 [module/backlight]
-type = internal/backlight
+type = internal/xbacklight
 card = intel_backlight
 
 format = <ramp> <label>

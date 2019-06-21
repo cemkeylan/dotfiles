@@ -133,22 +133,6 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
-alias ncmpcpp="ncmpcpp --port 6601"
-alias c="clear"
-alias l="ls"
-alias rm='rm -v'
-alias ccat="highlight"
-alias mutt="neomutt"
-alias cfb="vim $HOME/.bashrc"
-alias sb="source $HOME/.bashrc"
-alias dot="cd $HOME/dotfiles"
-alias vim="nvim"                         # Lol I forget typing nvim
-
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
@@ -165,8 +149,8 @@ shopt -s expand_aliases
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
-HISTSIZE=-1 
-HISTFILESIZE=-1
+HISTSIZE=912391291249
+HISTFILESIZE=912391291249
 #
 # # ex - archive extractor
 # # usage: ex <file>
@@ -193,13 +177,9 @@ ex ()
   fi
 }
 
-# better yaourt colors
-export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
-export PATH=$HOME/.gem/ruby/2.6.0/bin/:$PATH
-
 # Default Applications and Configuration Directory
 export EDITOR="/usr/bin/nvim"
-export TERMINAL="terminator"
+export TERMINAL="st"
 export BROWSER="qutebrowser"
 export XDG_CONFIG_HOME=$HOME/.config
 
@@ -210,3 +190,6 @@ export PATH=/usr/local/bin/:$PATH
 export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
 set -o vi
 export VIMUP=TRUE
+
+# Load aliases
+source $HOME/.aliases
