@@ -222,7 +222,7 @@ bindsym $mod+Return exec --no-startup-id st
 bindsym $mod+m exec --no-startup-id $music
 
 # Application Launcher
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -l 15'
+bindsym $mod+d exec --no-startup-id rofi -show drun 
 
 # Command Launcher
 bindsym $mod+u exec --no-startup-id dmenu_run -l 15
