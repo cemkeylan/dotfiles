@@ -7,7 +7,7 @@ rofi.font:                           Muli 10
 rofi.color-normal:                   argb:00000099, #D4d4d4, argb:00000099, argb:4CD75656,#FFFFFF
 rofi.color-urgent:                   argb:00000000, #D75656, argb:00000000, #FFFFFF, #FFFFFF
 rofi.color-active:                   #000000, #6A8554, #000000, argb:4CFFFFFF, #FFF
-rofi.color-window:                   argb:ff2f343f, #FFF, argb:22D75656
+rofi.color-window:                   argb:f22f343f, #FFF, argb:22D75656
 rofi.fullscreen: 		     true
 
 rofi.bw:                             0
