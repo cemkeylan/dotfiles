@@ -16,17 +16,12 @@ case $(ps aux) in
 	*)
 		;;
 esac
-sleep 0.5
 case $1 in
 	morning)
 		polybar -q top >/dev/null 2>&1 &
-		sleep 0.5
-		polybar -q bottom >/dev/null 2>&1 &
 		;;
 	night)
 		polybar -q topnight >/dev/null 2>&1 &
-		sleep 0.5
-		polybar -q bottomnight >/dev/null 2>&1 &
 		;;
 	*)
 		if [ -e $HOME/.night ]

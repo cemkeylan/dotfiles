@@ -31,12 +31,13 @@ barback = #aaffde9b
 
 [bar/top]
 width = 100%
-height = 27
+height = 35
 radius = 0.0
 fixed-center = true 
 background = ${colors.barback}
 foreground = #222
 primary = ${colors.mornprim}
+secondary = #ffa667
 power = ${colors.alert}
 
 line-size = 3
@@ -54,9 +55,9 @@ font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 font-color = #000
 
-modules-left = time
-modules-center = mpd 
-modules-right = backlight pulseaudio wlan eth battery mailcheck calcurse powermenu
+modules-left = i3 bspwm title
+modules-center = time
+modules-right = mpd nightmode xkeyboard backlight pulseaudio wlan eth memory cpu battery 
 
 tray-position = none 
 
@@ -65,13 +66,14 @@ cursor-scroll = ns-resize
 
 [bar/topnight]
 width = 100%
-height = 27
+height = 35 
 radius = 0.0
 fixed-center = true 
 background = ${colors.barnight}
 foreground = ${colors.foreground}
 primary = ${colors.primary}
 power = ${self.primary}
+secondary = ${self.primary}
 
 line-size = 3
 line-color = #f00
@@ -87,9 +89,9 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 
-modules-left = time
-modules-center = mpd 
-modules-right = backlight pulseaudio wlan eth battery mailcheck calcurse powermenu
+modules-left = i3 bspwm title
+modules-center = time
+modules-right = mpd nightmode xkeyboard backlight pulseaudio wlan eth memory cpu battery 
 
 tray-position = none 
 
@@ -123,7 +125,7 @@ font-3 = Material Icons:style=Regular:size=13;4
 
 modules-left = i3 bspwm title
 modules-center = todo 
-modules-right = wl nightmode xkeyboard filesystem rootfs memory cpu  
+modules-right = nightmode xkeyboard filesystem rootfs memory cpu  
 
 tray-position = right
 tray-padding = 2
@@ -158,7 +160,7 @@ font-3 = Material Icons:style=Regular:size=13;4
 
 modules-left = i3 bspwm title
 modules-center = todo 
-modules-right = wl nightmode xkeyboard filesystem rootfs memory cpu  
+modules-right = nightmode xkeyboard filesystem rootfs memory cpu  
 
 tray-position = right
 tray-padding = 2
@@ -258,7 +260,7 @@ blacklist-0 = num lock
 
 format-prefix = " "
 
-label-layout = %layout%  |
+label-layout = %layout%
 
 label-indicator-padding = 2
 label-indicator-margin = 1
@@ -362,14 +364,6 @@ label-connected = %local_ip%
 
 format-disconnected =
 
-[module/calcurse]
-type = custom/text
-content = 
-
-click-left = notify-send "Weekly Summary" "$(echo -e Today: && date && printf "\nTODO:\n" && calcurse -Q --days 10 --filter-uncompleted | sed "/to do:/d" -)"
-click-middle = notify-send "Weekly Summary" "$(echo -e Today: && date && printf "\nTODO:\n" && calcurse -Q --days 10 --filter-uncompleted | sed "/to do:/d" -)"
-click-right = notify-send "Weekly Summary" "$(echo -e Today: && date && printf "\nTODO:\n" && calcurse -Q --days 10 --filter-uncompleted | sed "/to do:/d" -)"
-
 [module/mailcheck]
 ; You should probably delete this
 type = custom/script
@@ -378,15 +372,6 @@ exec = $HOME/bin/checkmail
 click-left = terminator -e "neomutt && exit"
 click-middle = terminator -e "neomutt && exit"
 click-right = terminator -e "neomutt && exit"
-
-[module/wl]
-; Simple script to read my .watchlater directory
-type = custom/script
-exec = echo -e " $(ls $HOME/.watchlater | wc -l)"
-
-click-left = $HOME/bin/dwatch
-click-middle = $HOME/bin/dwatch
-click-right = $HOME/bin/dwatch
 
 [module/time]
 type = internal/date
