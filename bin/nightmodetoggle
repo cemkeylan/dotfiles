@@ -26,7 +26,10 @@ then
 			then
 				exit
 			else
-				if [ `date +%H%M` -gt "1959" ] ||  [ `date +%H%M` -lt "0600" ]
+				[ -e $HOME/.sunset ] && . $HOME/.sunset
+				[ -z $SUNSET ] && SUNSET=1959
+				[ -z $SUNRISE ] && SUNRISE=0600
+				if [ `date +%H%M` -gt "$SUNSET" ] ||  [ `date +%H%M` -lt "$SUNRISE" ]
 				then
 					printf "CLICK=0\nNIGHT=1" > $HOME/.night	
 				else

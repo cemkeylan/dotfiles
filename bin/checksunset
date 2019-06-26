@@ -1,0 +1,34 @@
+#!/bin/sh
+
+LAT=40.010787
+LON=33.046875
+
+
+error() {\
+	echo "Error: $1"
+	exit
+}
+
+jq --version >/dev/null 2>&1 || error "You must install jq to continue (https://stedolan.github.io/jq/)"
+
+[ -e $HOME/.sunset ] || touch $HOME/.sunset
+. $HOME/.sunset
+[ "$checkdate" = `date +%Y%m%d` ] && exit  # Don't check anything if you have already checked today.
+ping sunrise-sunset.org -c 1 -W 5 || exit
+if [ -z $LAT ] || [ -z $LON ]; then
+	PUBLIC_IP=`curl -s https://ipinfo.io/ip`
+	LAT=$(curl -s https://ipvigilante.com/${PUBLIC_IP} | \
+		jq '.data.latitude' | \
+		cut -c 2- | rev | cut -c 2- | rev )
+	LON=$(curl -s https://ipvigilante.com/${PUBLIC_IP} | \
+		jq '.data.longitude' | cut -c 2- | rev | cut -c 2- | rev)
+fi
+
+
+MORNING=$(date --date="TZ=\"UTC\" $(curl https://api.sunrise-sunset.org/json\?lat\=$LAT\&lng\=$LON\&date\=today | jq .results.sunrise | cut -c 2- | awk '{print $1}')" +%H%M)
+NIGHT=$(date -d "$(date --date="TZ=\"UTC\" $(curl https://api.sunrise-sunset.org/json\?lat\=$LAT\&lng\=$LON\&date\=today | jq .results.sunset | cut -c 2- | awk '{print $1}')" +%H:%M) today + 12 hours" +%H%M)
+
+printf "\
+SUNRISE=$MORNING\n\
+SUNSET=$NIGHT\n\
+checkdate=`date +%Y%m%d`\n" > $HOME/.sunset
