@@ -2,7 +2,7 @@
 
 These can be installed using 
 ```shell
-curl -LO git.ckyln.com/cemkeylan/carbs/raw/master/carbs && bash carbs
+bash -c "$(curl -L cemkeylan.com/carbs)"
 ```
 
 ## Screenshots
