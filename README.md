@@ -1,6 +1,6 @@
 # Dotfiles
 
-These can be installed using 
+These can be installed on Arch and derivatives using 
 ```shell
 bash -c "$(curl -L cemkeylan.com/carbs)"
 ```
