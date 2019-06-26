@@ -225,7 +225,7 @@ bindsym $mod+m exec --no-startup-id $music
 bindsym $mod+d exec --no-startup-id rofi -show drun 
 
 # Command Launcher
-bindsym $mod+u exec --no-startup-id dmenu_run -l 15
+bindsym $mod+u exec --no-startup-id rofi -show run
 
 # Launch Mutt
 bindsym $mod+Shift+m exec --no-startup-id $term -e neomutt && exit
