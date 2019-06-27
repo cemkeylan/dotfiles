@@ -202,6 +202,9 @@ bindsym $altmod+Shift+n exec --no-startup-id $HOME/bin/yousure
 # Reboot Command
 bindsym $altmod+Shift+r exec --no-startup-id $HOME/bin/yousurereb
 
+# Suspend Command
+bindsym $altmod+Shift+s exec systemctl suspend
+
 ########################################
 
 ######## Application Shortcuts #########
