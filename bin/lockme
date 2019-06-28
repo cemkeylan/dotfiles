@@ -1,0 +1,5 @@
+#!/bin/sh
+
+REALNAME="$(getent passwd $USER | cut -d ':' -f 5)"
+[ -z "$REALNAME" ] && REALNAME=$USER
+sxlock -u "$REALNAME"
