@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$(pacman -T calcurse)" = "calcurse" ]
+if ! [ "$(calcurse --version 2>/dev/null)" ]
 then
 	if [ -s $HOME/todo.txt ] 
 	then
