@@ -11,7 +11,7 @@
 ######## Default Programs #########
 
 # Terminal
-set $term st 
+set $term st
 
 # Browser
 set $brow qutebrowser
@@ -168,7 +168,7 @@ bindsym $mod+r mode "resize"
 
 
 # Auto Locking
-exec --no-startup-id xautolock -time 10 -locker 'betterlockscreen --lock'
+exec --no-startup-id xautolock -time 10 -locker '~/bin/lockme'
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && mpv /usr/share/sounds/LinuxMint/stereo/volume.oga #increase sound volume
