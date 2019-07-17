@@ -1,8 +1,18 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+zshinstall() {
+	bef=$PWD
+	cd $HOME
+	git clone https://github.com/robbyrussell/oh-my-zsh
+	mv oh-my-zsh .oh-my-zsh
+	git clone https://git.ckyln.com/keylanzsh
+	mv keylanzsh/keylan.zsh-theme .oh-my-zsh/themes
+	cd $bef
+}
+! [ -d $HOME/.oh-my-zsh ] && zshinstall
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/cem/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -110,6 +120,7 @@ export PATH=$HOME/bin/:$PATH
 export PATH=$HOME/.scripts/:$PATH
 export PATH=/usr/local/bin/:$PATH
 export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
+export PATH=$HOME/.gem/ruby/2.6.0/bin/:$PATH
 set -o vi
 export VIMUP=TRUE
 
