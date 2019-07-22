@@ -55,9 +55,9 @@ font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 font-color = #000
 
-modules-left = i3 bspwm title
+modules-left = i3 bspwm title mpd
 modules-center = time
-modules-right = mpd nightmode xkeyboard backlight pulseaudio wlan eth memory cpu battery 
+modules-right = nightmode xkeyboard backlight pulseaudio wlan eth memory cpu battery 
 
 tray-position = none 
 
@@ -89,9 +89,9 @@ font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 font-3 = Material Icons:style=Regular:size=13;4 
 
-modules-left = i3 bspwm title
+modules-left = i3 bspwm title mpd
 modules-center = time
-modules-right = mpd nightmode xkeyboard backlight pulseaudio wlan eth memory cpu battery 
+modules-right = nightmode xkeyboard backlight pulseaudio wlan eth memory cpu battery 
 
 tray-position = none 
 
