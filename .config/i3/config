@@ -270,6 +270,9 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # Launch Unclutter (disables cursor when it is not being used)
 exec --no-startup-id unclutter
 
+# Battery Checks
+exec --no-startup-id ~/bin/powercheck
+
 ############# Overrides ################
 # This point onwards will be set by
 # CARBS
