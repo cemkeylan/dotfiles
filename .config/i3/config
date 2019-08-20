@@ -8,6 +8,26 @@
 #
 # i3 config file (v4)
 
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+set_from_resource $bgfron i3wm.color4 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bgfron $bgfron     $fg  $bgfron       $bgfron
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bgfron
+
+
+
 ######## Default Programs #########
 
 # Terminal
@@ -20,7 +40,7 @@ set $brow qutebrowser
 set $fm st -e lf && exit
 
 # Music Player
-set $music st -e ncmpcpp && exit
+set $music st -e zsh -c '. ~/.zshrc && ncmpcpp'
 
 ###################################
 
@@ -230,9 +250,6 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 # Command Launcher
 bindsym $mod+u exec --no-startup-id rofi -show run
 
-# Launch Mutt
-bindsym $mod+Shift+m exec --no-startup-id $term -e neomutt && exit
-
 # Launch Calcurse
 bindsym $mod+c exec --no-startup-id $term -e calcurse && exit
 
@@ -256,7 +273,7 @@ exec --no-startup-id numlockx on
 exec --no-startup-id compton
 
 # Start Music Player Daemon
-exec --no-startup-id mpd /home/cem/.config/mpd/mpd.conf
+exec --no-startup-id mpd
 
 # Launch Clip Manager
 exec --no-startup-id clipit

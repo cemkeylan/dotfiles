@@ -191,5 +191,7 @@ export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
 set -o vi
 export VIMUP=TRUE
 
+(cat ~/.cache/wal/sequences &)
+
 # Load aliases
 source $HOME/.aliases

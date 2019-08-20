@@ -19,15 +19,15 @@
 [colors]
 background = #222
 background-alt = #444
-foreground = #fff
-foreground-alt = #fff
-primary = #1a94ff 
-mornprim = #222
-secondary = #e60053
-alert = #bd2c40
+foreground = ${xrdb:color7:#fff}
+foreground-alt = ${xrdb:color7:#fff}
+primary = ${xrdb:color1:#1a94ff}
+mornprim = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#e60053}
+alert = ${xrdb:color3:#bd2c40}
 ;barnight = #aa222222
-barnight = #aa282e44
-barback = #aaffde9b
+barnight = ${xrdb:color0:#aa282e44}
+barback = ${xrdb:color0:#aaffde9b}
 
 [bar/top]
 width = 100%
@@ -35,7 +35,7 @@ height = 35
 radius = 0.0
 fixed-center = true 
 background = ${colors.barback}
-foreground = #222
+foreground = ${xrdb:color7:#222}
 primary = ${colors.mornprim}
 secondary = #ffa667
 power = ${colors.alert}
