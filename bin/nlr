@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Next Logon Reminder - a very simple utility to get a reminder the next time you login.
+# i3 runs this script everytime you login, but you could also add it to your .xinitrc
+# When the reminder is activated, .nlr file is deleted.
+#
+## Usage: 
+## To add a reminder
+#  nlr "Your reminder here"
+## To get the reminder:
+#  nlr
+
+
+[ -z "$1" ] && [ -e "$HOME/.nlr" ] && notify-send "Next Logon Reminder" "$(cat $HOME/.nlr)" && rm $HOME/.nlr && exit
+echo $1 >> $HOME/.nlr

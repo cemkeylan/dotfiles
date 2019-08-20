@@ -275,6 +275,9 @@ exec --no-startup-id compton
 # Start Music Player Daemon
 exec --no-startup-id mpd
 
+# Get Next Logon Reminders
+exec --no-startup-id nlr
+
 # Launch Clip Manager
 exec --no-startup-id clipit
 
