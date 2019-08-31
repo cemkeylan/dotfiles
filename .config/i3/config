@@ -276,7 +276,7 @@ exec --no-startup-id compton
 exec --no-startup-id mpd
 
 # Get Next Logon Reminders
-exec --no-startup-id nlr
+exec --no-startup-id ~/bin/nlr
 
 # Launch Clip Manager
 exec --no-startup-id clipit
