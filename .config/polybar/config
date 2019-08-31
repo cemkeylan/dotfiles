@@ -37,7 +37,7 @@ fixed-center = true
 background = ${colors.barback}
 foreground = ${xrdb:color7:#222}
 primary = ${colors.mornprim}
-secondary = #ffa667
+secondary = ${self.primary}
 power = ${colors.alert}
 
 line-size = 3
