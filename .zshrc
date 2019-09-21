@@ -83,7 +83,6 @@ ZSH_THEME="keylan"
 plugins=(git docker docker-compose) 
 
 source $ZSH/oh-my-zsh.sh
-(cat $HOME/.cache/wal/sequences &)
 
 # User configuration
 
@@ -111,20 +110,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Default Applications and Configuration Directory
-export EDITOR="/usr/bin/nvim"
-export TERMINAL="st"
-export BROWSER="qutebrowser"
-export XDG_CONFIG_HOME=$HOME/.config
-
-# Personal Scripts
-export PATH=$HOME/bin/:$PATH
-export PATH=$HOME/.scripts/:$PATH
-export PATH=/usr/local/bin/:$PATH
-export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
-export PATH=$HOME/.gem/ruby/2.6.0/bin/:$PATH
 set -o vi
 export VIMUP=TRUE
-
-# Load aliases
-source $HOME/.aliases
+source $HOME/.profile

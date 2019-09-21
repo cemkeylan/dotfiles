@@ -184,14 +184,8 @@ export BROWSER="qutebrowser"
 export XDG_CONFIG_HOME=$HOME/.config
 
 # Personal Scripts
-export PATH=$HOME/bin/:$PATH
-export PATH=$HOME/.scripts/:$PATH
-export PATH=/usr/local/bin/:$PATH
-export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
 set -o vi
 export VIMUP=TRUE
 
 (cat ~/.cache/wal/sequences &)
-
-# Load aliases
-source $HOME/.aliases
+source $HOME/.profile
