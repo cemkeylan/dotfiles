@@ -142,7 +142,6 @@ Plug 'vim-latex/vim-latex'
 Plug 'dylanaraps/wal.vim'
 call plug#end()
 map <C-o> :NERDTreeToggle<CR>
-colorscheme wal
 filetype plugin indent on
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip', @y)<CR>
 set clipboard=unnamedplus
