@@ -44,25 +44,10 @@ then
 	esac
 	if [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
 	then
-		wal -i $HOME/Pictures/Wallpapers/Night 
-		case $(ps aux | grep -i polybar) in
-			*night*)
-				exit
-				;;
-			*)
-				$HOME/bin/polyrestart night
-				;;
-		esac
+
+		feh --bg-fill --randomize $HOME/Pictures/Wallpapers/Night/*	
 	else
-		wal -i $HOME/Pictures/Wallpapers/Morning
-		case $(ps aux | grep -i polybar | head -n +1 -) in
-			*"polybar -q top")
-				exit
-				;;
-			*)
-				$HOME/bin/polyrestart morning
-				;;
-		esac
+		feh --bg-fill --randomize $HOME/Pictures/Wallpapers/Morning/*	
 	fi
 else
 	touch $HOME/.night

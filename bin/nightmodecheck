@@ -12,17 +12,17 @@ then
 	then
 		if [ $CLICK = "0" ]
 		then
-			echo ""
+			echo "0"
 		else
-			echo " $CLICK"
+			echo "0 $CLICK"
 		fi
 	elif [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
 	then
 		if [ $CLICK = "0" ]
 		then
-			echo ""
+			echo "1"
 		else
-			echo " $CLICK"
+			echo "1 $CLICK"
 		fi
 	fi
 else
