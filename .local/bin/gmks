@@ -1,0 +1,2 @@
+#!/bin/sh
+st -t Gomuks -e /bin/sh -c gomuks

@@ -1,6 +1,7 @@
 #!/bin/sh
+. $HOME/.profile
 compton &
-/home/cem/bin/nightmodetoggle disable &
+nightmodetoggle disable &
 powercheck &
 # Launch Bar
 while true :

@@ -18,7 +18,7 @@ then
 			NIGHT=$(tail -n -1 $HOME/.night)
 			echo 'CLICK=0' > $HOME/.night
 			echo $NIGHT >> $HOME/.night
-			$HOME/bin/nightmodetoggle cron
+			$HOME/.local/bin/nightmodetoggle cron
 			exit
 			;;
 		"cron")

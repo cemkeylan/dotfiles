@@ -4,7 +4,7 @@ export TERMINAL="st"
 export BROWSER="qutebrowser"
 export XDG_CONFIG_HOME=$HOME/.config
 
-export PATH=$HOME/bin/:$PATH
+export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/.scripts/:$PATH
 export PATH=/usr/local/bin/:$PATH
 export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH

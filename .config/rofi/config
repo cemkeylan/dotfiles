@@ -32,8 +32,8 @@ rofi.display-window:                 Currently Open
 rofi.display-run:                    Execute
 rofi.display-drun:                   Applications
 rofi.display-ssh:                    Secure Socket Shell
-rofi.eh:                             1
-rofi.line-margin:                    2
+rofi.eh:			      1
+rofi.line-margin:		      2
 rofi.line-padding:                   3
 rofi.opacity: 100
 
