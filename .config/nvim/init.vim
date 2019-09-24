@@ -138,8 +138,8 @@ call plug#begin()
 Plug 'mcchrish/nnn.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'itchyny/lightline.vim'
-Plug 'vim-latex/vim-latex'
 Plug 'dylanaraps/wal.vim'
+Plug 'lervag/vimtex'
 call plug#end()
 map <C-o> :NERDTreeToggle<CR>
 filetype plugin indent on
