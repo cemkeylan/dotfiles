@@ -5,7 +5,7 @@ zshinstall() {
 	cd $HOME
 	git clone https://github.com/robbyrussell/oh-my-zsh
 	mv oh-my-zsh .oh-my-zsh
-	git clone https://git.ckyln.com/keylanzsh
+	git clone git://git.ckyln.com/keylanzsh
 	mv keylanzsh/keylan.zsh-theme .oh-my-zsh/themes
 	rm -r keylanzsh
 	cd $bef
