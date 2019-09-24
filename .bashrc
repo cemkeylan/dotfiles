@@ -187,5 +187,4 @@ export XDG_CONFIG_HOME=$HOME/.config
 set -o vi
 export VIMUP=TRUE
 
-(cat ~/.cache/wal/sequences &)
 source $HOME/.profile
