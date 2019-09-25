@@ -1,6 +1,6 @@
 #!/bin/sh
 . $HOME/.profile
-xcompmgr &
+xcompmgr -C &
 nightmodetoggle disable &
 powercheck &
 # Launch Bar
