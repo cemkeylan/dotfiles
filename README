@@ -1,0 +1,7 @@
+Dotfiles
+========
+
+These can be installed on Arch and derivatives using
+
+bash -c "$(curl -L cemkeylan.com/carbs)"
+
