@@ -2,6 +2,8 @@
 export EDITOR="/usr/bin/nvim"
 export TERMINAL="st"
 export BROWSER="qutebrowser"
+export MAILER="neomutt"
+
 export XDG_CONFIG_HOME=$HOME/.config
 
 export PATH=$HOME/.local/bin/:$PATH
