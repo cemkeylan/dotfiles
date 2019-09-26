@@ -1,7 +1,0 @@
-#!/bin/sh
-
-echo $HOME/.config/i3/config | entr -p -n /usr/bin/i3 restart >/dev/null 2>&1 &
-ENTR=$!
-nvim $HOME/.config/i3/config
-sleep 1
-kill $ENTR

@@ -1,8 +1,0 @@
-#!/bin/sh
-
-echo $HOME/.config/polybar/config | entr -p -n $HOME/bin/polyrestart >/dev/null 2>&1 &
-ENTR=$!
-nvim $HOME/.config/polybar/config
-sleep 1
-[ -z "$(pidof entr)" ] && exit 
-kill $ENTR
