@@ -8,7 +8,7 @@ else
 	export nightmode="Morning"
 fi
 export selection=$(ls $HOME/Pictures/Wallpapers/$nightmode | grep -i .jpg | dmenu -l 10)
-if [$selection = ""]
+if [ "$selection" = "" ]
 then
 	exit
 else
