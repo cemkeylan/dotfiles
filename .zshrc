@@ -83,6 +83,7 @@ ZSH_THEME="keylan"
 plugins=(git docker docker-compose) 
 
 source $ZSH/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
