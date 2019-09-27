@@ -1,23 +1,111 @@
 #!/bin/bash
 
+out() { printf "$1 $2\n" "${@:3}"; }
+error() { out "==> ERROR:" "$@"; } >&2
+warning() { out "==> WARNING:" "$@"; } >&2
+msg() { out "==>" "$@"; }
+msg2() { out "  ->" "$@";}
+die() { error "$@"; exit 1; }
 
-git clone https://git.ckyln.com/cemkeylan/dotfiles.git
-cd dotfiles
-BASE=$PWD
-if [ $RCUP = "YES" ]
-then
-	cp -u -v $PWD/.bashrc $HOME/.bashrc
+usage() {
+	cat <<EOF
+usage: ${0##*/} [options]
+
+  Options:
+    -r <repo url>     Use an alternative dotfiles repo
+    -p <progs.csv>    Use an alternative progs.csv file (must be local)
+    -P <filename>     Download progs.csv and exit
+
+    -h/--help         Print this help message
+
+Updot updates the dotfiles and installs the current progs.csv
+
+EOF
+}
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
+	usage
+	exit
 fi
-if [ $VIMUP = "YES" ]
-then
-	cp -u -v $PWD/.vimrc $HOME/.vimrc
-fi
-cp -u -v -r $PWD/bin $HOME/bin
-declare -i OVERRIDE
-OVERRIDE=$(grep -nr "Feel free to" $HOME/.config/i3/config | cut -d : -f 1)+1
-tail -n +$OVERRIDE $HOME/.config/i3/config >> $PWD/.config/i3/config
-cp -u -v $PWD/.config/i3/config $HOME/.config/i3/config
-cp -u -v $PWD/.config/terminator/config $HOME/.config/terminator/config
-cp -u -v $PWD/.config/polybar/config $HOME/.config/polybar/config
-echo "Cleaning up"
-cd $BASE/.. && rm -r dotfiles
+
+while getopts ':p::r::P:' flag; do
+	case $flag in
+		P) curl -sLo $OPTARG https://raw.githubusercontent.com/cemkeylan/carbs/master/progs.csv && exit || die 'Could not download progs.csv' ;;
+		p) [ -e $OPTARG ] && progs=$OPTARG || die 'Could not find progs.csv file' ;;
+		r) git ls-remote $OPTARG >/dev/null 2>&1 && dotfiles=$OPTARG || die 'Could not find repo' ;;
+		:) die '%s: option requires argument -- '\''%s'\' "${0##*/}" "$OPTARG" ;;
+		?) die '%s: invalid option -- '\''%s'\' "${0##*/}" "$OPTARG" ;;
+	esac
+done
+
+[ -z $dotfiles ] && dotfiles="git://git.ckyln.com/dotfiles"
+[ -z $progs ] && curl -sLo /tmp/progs.csv https://raw.githubusercontent.com/cemkeylan/carbs/master/progs.csv && progs="/tmp/progs.csv"
+
+welcomepage() {
+	clear
+	cat <<EOF
+================================================== 
+===     ======  =====       ===      =====      == 
+==  ===  ====    ====  ====  ==  ===  ===  ====  = 
+=  =========  ==  ===  ====  ==  ====  ==  ====  = 
+=  ========  ====  ==  ===   ==  ===  ====  ====== 
+=  ========  ====  ==      ====      =======  ==== 
+=  ========        ==  ====  ==  ===  ========  == 
+=  ========  ====  ==  ====  ==  ====  ==  ====  = 
+==  ===  ==  ====  ==  ====  ==  ===  ===  ====  = 
+===     ===  ====  ==  ====  ==      =====      == 
+================================================== 
+
+Welcome to Cem's Auto-Rice Bootstrapping Script!
+
+WARNING:
+This update might break your personal changes, so 
+it is highly recommended that you backup your .config
+before you continue.
+
+EOF
+printf "Proceed? (y/N) "
+read ans
+[ "$ans" = "y" ] || die 'User exited'
+}
+
+installcsv() {\
+	[ -e $progs ] || die 'Could not retrieve progs.csv'
+	while IFS=, read -r src name
+	do
+		case $src in
+			y)
+				out 'Installing %s' "$name"
+				yay -S --noconfirm --needed $name >/dev/null || die 'Could not install %s' "$name"
+				msg 'Installed %s' "$name" ;;
+			g)
+				out 'Installing %s' "$name"
+				makeinstall $name || die 'Could not install %s' "$name"
+				msg 'Installed %s' "$name" ;;
+			*)
+				out 'Installing %s' "$name"
+				sudo pacman -S --noconfirm --needed $name >/dev/null || die 'Could not install %s' "$name"
+				msg 'Installed %s' "$name" ;;
+		esac
+	done < $progs
+}
+
+dotfilesinstall() {
+	cd /tmp
+	dir="$(mktemp -d)"
+	git clone $1 $dir/repo
+	cp -rfT $dir/repo $targetdir
+	rm $targetdir/README* $targetdir/LICENSE $targetdir/.git -rf $targetdir/screenshots
+}
+
+finalize() {
+	cat <<EOF
+Carbs update script is finished
+
+EOF
+}
+
+welcomepage
+installcsv
+dotfilesinstall $dotfiles
+finalize
