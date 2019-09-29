@@ -4,11 +4,7 @@ xcompmgr -C &
 nightmodetoggle disable &
 powercheck &
 # Launch Bar
-while true :
-do
-	bar.sh
-	sleep 0.1
-done &
+slstatus &
 numlockx on
 mpd >/dev/null 2>&1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
