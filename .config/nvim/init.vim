@@ -137,6 +137,7 @@ set number relativenumber
 call plug#begin()
 Plug 'mcchrish/nnn.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 Plug 'itchyny/lightline.vim'
 Plug 'lervag/vimtex'
 call plug#end()
