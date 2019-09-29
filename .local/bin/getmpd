@@ -1,0 +1,3 @@
+#!/bin/sh
+# Stolen from Luke Smith
+mpc -f "[[%artist% - ]%title%]|[%file%]" 2>/dev/null | grep -v "volume:" | head -n 1 
