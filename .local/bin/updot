@@ -105,7 +105,7 @@ dotfilesinstall() {
 	dir="$(mktemp -d)"
 	git clone $1 $dir/repo
 	cp -rfT $dir/repo $HOME
-	rm $targetdir/README* $targetdir/LICENSE $targetdir/.git -rf $targetdir/screenshots
+	rm $HOME/README* $HOME/LICENSE $HOME/.git -rf $HOME/screenshots
 }
 
 finalize() {
