@@ -23,6 +23,7 @@ Updot updates the dotfiles and installs the current progs.csv
 EOF
 }
 
+
 if [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
 	usage
 	exit
@@ -67,6 +68,15 @@ EOF
 printf "Proceed? (y/N) "
 read ans
 [ "$ans" = "y" ] || die 'User exited'
+}
+
+makeinstall() {
+	cd /tmp
+	dir="$(mktemp -d)"
+	git clone $1 $dir || die 'Could not clone git repo'
+	cd $dir
+	make || die 'Could not build %s' "$1"
+	sudo make install || die 'Could not install %s' "$1"
 }
 
 installcsv() {\
