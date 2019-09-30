@@ -1,5 +1,7 @@
 #!/bin/sh
 . $HOME/.profile
+. $HOME/.config/xkeymap
+setxkbmap $KEYMAP
 xcompmgr -C &
 nightmodetoggle disable &
 powercheck &
