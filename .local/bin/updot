@@ -15,6 +15,7 @@ usage: ${0##*/} [options]
     -r <repo url>     Use an alternative dotfiles repo
     -p <progs.csv>    Use an alternative progs.csv file (must be local)
     -P <filename>     Download progs.csv and exit
+    -d		      Update dotfiles only
 
     -h/--help         Print this help message
 
@@ -29,11 +30,12 @@ if [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
 	exit
 fi
 
-while getopts ':p::r::P:' flag; do
+while getopts ':p::r::P:d' flag; do
 	case $flag in
 		P) curl -sLo $OPTARG https://raw.githubusercontent.com/cemkeylan/carbs/master/progs.csv && exit || die 'Could not download progs.csv' ;;
 		p) [ -e $OPTARG ] && progs=$OPTARG || die 'Could not find progs.csv file' ;;
 		r) git ls-remote $OPTARG >/dev/null 2>&1 && dotfiles=$OPTARG || die 'Could not find repo' ;;
+		d) dotonly=1 ;;
 		:) die '%s: option requires argument -- '\''%s'\' "${0##*/}" "$OPTARG" ;;
 		?) die '%s: invalid option -- '\''%s'\' "${0##*/}" "$OPTARG" ;;
 	esac
@@ -116,6 +118,6 @@ EOF
 }
 
 welcomepage
-installcsv
+[ -z $dotonly ] && installcsv
 dotfilesinstall $dotfiles
 finalize
