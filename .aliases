@@ -9,6 +9,5 @@ alias rm='rm -v'
 alias mutt="neomutt"
 alias cfb="vim $HOME/.bashrc"
 alias sb="source $HOME/.bashrc"
-alias dot="cd $HOME/dotfiles"
 alias vim="nvim"                         # Lol I forget typing nvim
-
+alias ymp3="youtube-dl --audio-format mp3 -x"
