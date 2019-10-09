@@ -6,6 +6,7 @@ export MAILER="neomutt"
 
 export XDG_CONFIG_HOME=$HOME/.config
 
+export GOPATH=$HOME/go
 export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/.scripts/:$PATH
 export PATH=/usr/local/bin/:$PATH
