@@ -1,8 +1,7 @@
 #!/bin/sh
 
-LAT=40.010787
-LON=33.046875
-
+! [ -e $HOME/.config/sunsetrc ] && printf "LAT=\nLON=\n" > $HOME/.config/sunsetrc
+. $HOME/.config/sunsetrc
 
 error() {\
 	echo "Error: $1"
