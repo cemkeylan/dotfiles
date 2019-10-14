@@ -7,7 +7,7 @@ zshinstall() {
 	mv oh-my-zsh .oh-my-zsh
 	git clone git://git.ckyln.com/keylanzsh
 	mv keylanzsh/keylan.zsh-theme .oh-my-zsh/themes
-	rm -r keylanzsh
+	rm -rf keylanzsh
 	cd $bef
 }
 ! [ -d $HOME/.oh-my-zsh ] && zshinstall
