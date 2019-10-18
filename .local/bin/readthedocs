@@ -1,0 +1,2 @@
+#!/bin/sh
+zathura $HOME/.local/share/carbs/carbs.pdf
