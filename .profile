@@ -3,6 +3,7 @@ export EDITOR="/usr/bin/nvim"
 export TERMINAL="st"
 export BROWSER="qutebrowser"
 export MAILER="neomutt"
+export SUDO_ASKPASS=$HOME/.local/bin/dpass
 
 export XDG_CONFIG_HOME=$HOME/.config
 
