@@ -10,7 +10,7 @@ zshinstall() {
 	rm -rf keylanzsh
 	cd $bef
 }
-! [ -d $HOME/.oh-my-zsh ] && zshinstall
+! [ -d $HOME/.oh-my-zsh ] && zshinstall >/dev/null
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
