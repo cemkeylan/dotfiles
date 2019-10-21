@@ -4,6 +4,7 @@ export TERMINAL="st"
 export BROWSER="qutebrowser"
 export MAILER="neomutt"
 export SUDO_ASKPASS=$HOME/.local/bin/dpass
+export PAGER="less"
 
 export XDG_CONFIG_HOME=$HOME/.config
 
