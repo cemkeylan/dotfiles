@@ -145,3 +145,4 @@ zle -N zle-keymap-select
 
 export VIMUP=TRUE
 source $HOME/.profile
+[ -e $HOME/.customprofile ] && source $HOME/.customprofile
