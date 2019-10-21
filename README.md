@@ -40,7 +40,12 @@ See also
 --------
 
 dmenu:    https://git.ckyln.com/dmenu/log.html    - https://github.com/cemkeylan/dmenu
+
 dwm:      https://git.ckyln.com/dwm/log.html      - https://github.com/cemkeylan/dwm-carbs
+
 slstatus: https://git.ckyln.com/slstatus/log.html - https://github.com/cemkeylan/slstatus
+
 st:       https://git.ckyln.com/st/log.html       - https://github.com/cemkeylan/st
+
 bm:       https://git.ckyln.com/bm/log.html       - https://github.com/cemkeylan/bm
+
