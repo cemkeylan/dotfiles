@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# User chooses between dark and light themes
+theme="$(printf "dark\nlight" | dmenu -p "Do you want a light theme or a night theme?")"
+[ -z "$theme" ] && exit
+! [ "$theme" = "dark" ] && ! [ "$theme" = "light" ] && echo not an option && exit
+lsrsrc="$(ls $HOME/.local/share/xresource-themes/$theme/)"
+selrsrc="$(echo "$lsrsrc" | dmenu -p "choose the resource you want to set")"
+[ -z "$selrsrc" ] && exit
+xrdb $HOME/.local/share/xresource-themes/$theme/$selrsrc && notify-send "Xresources Changed" "Your theme has been set to $selrsrc"
+printf "$HOME/.local/share/xresource-themes/$theme/$selrsrc" > $HOME/.lastresource
