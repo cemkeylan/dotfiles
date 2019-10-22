@@ -1,12 +1,18 @@
 #!/bin/sh
+
+xrdblast() {
+	[ -e $HOME/.lastresource ] && xrdb "$(cat $HOME/.lastresource)"
+	! [ -e $HOME/.lastresource ] && xrdb $HOME/.local/share/xresource-themes/dark/dracula
+}
+
 . $HOME/.profile
 . $HOME/.config/xkeymap
 setxkbmap $KEYMAP
 xcompmgr -C &
 nightmodetoggle disable &
 powercheck &
-# Launch Bar
 slstatus &
+xrdblast
 numlockx on
 mpd >/dev/null 2>&1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
