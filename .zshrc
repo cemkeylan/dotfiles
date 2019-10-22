@@ -128,6 +128,9 @@ lfcd () {
     fi
 }
 
+bindkey -s '^e' "scriptedit\n"
+scriptedit() {ls $HOME/.local/bin/ | fzf | xargs -r -I {} $EDITOR $HOME/.local/bin/{};}
+
 # Stolen from Luke Smith
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
