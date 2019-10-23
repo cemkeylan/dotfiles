@@ -13,6 +13,7 @@ nightmodetoggle disable &
 powercheck &
 slstatus &
 xrdblast
+unclutter &
 numlockx on
 mpd >/dev/null 2>&1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
