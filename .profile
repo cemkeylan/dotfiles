@@ -17,3 +17,4 @@ export PATH=$HOME/.gem/ruby/2.6.0/bin/:$PATH
 . $HOME/.aliases
 
 export BUG_PROJECT="$HOME/.todo.bug"
+[ -e $HOME/.customprofile ] && . $HOME/.customprofile
