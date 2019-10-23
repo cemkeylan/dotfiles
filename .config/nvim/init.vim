@@ -141,6 +141,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'itchyny/lightline.vim'
 Plug 'lervag/vimtex'
 Plug 'AndrewRadev/id3.vim'
+Plug 'vimwiki/vimwiki'
 call plug#end()
 map <C-o> :NERDTreeToggle<CR>
 filetype plugin indent on
