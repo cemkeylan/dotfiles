@@ -1,10 +1,5 @@
 #!/bin/sh
 
-xrdblast() {
-	[ -e $HOME/.lastresource ] && xrdb "$(cat $HOME/.lastresource)"
-	! [ -e $HOME/.lastresource ] && xrdb $HOME/.local/share/xresource-themes/dark/dracula
-}
-
 . $HOME/.profile
 . $HOME/.config/xkeymap
 setxkbmap $KEYMAP
@@ -12,7 +7,7 @@ xcompmgr -C &
 nightmodetoggle disable &
 powercheck &
 slstatus &
-xrdblast &
+[ -e $HOME/.lastresource ] && xrdb "$(cat $HOME/.lastresource)" || xrdb $HOME/.local/share/xresource-themes/dark/dracula
 unclutter &
 numlockx on &
 mpd >/dev/null 2>&1 &
