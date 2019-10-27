@@ -24,6 +24,7 @@ Plug 'AndrewRadev/id3.vim'
 Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/goyo.vim'
+Plug 'jreybert/vimagit'
 call plug#end()
 
 
