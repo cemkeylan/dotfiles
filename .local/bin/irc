@@ -13,7 +13,7 @@ then
 	UNICK="$(printf "$USER\n" | dmenu -i -p NICK:)"
 	[ -n "$UNICK" ] && NICK="$UNICK" || NICK="$USER"
 	printf \
-"#!/bin/sh\nHOST=\"$HOST\"\nPORT=\"$PORT\"\nNICK=\"$NICK\"\n" > $HOME/.sicrc
+"#\n# Sic configuration\\n\\nHOST=\"$HOST\"\nPORT=\"$PORT\"\nNICK=\"$NICK\"\n" > $HOME/.sicrc
 	notify-send "Simple IRC Client" "The file has been written to $HOME/.sicrc\n"
 fi
 . $HOME/.sicrc
