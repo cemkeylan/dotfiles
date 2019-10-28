@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 ! [ -e $HOME/.config/sunsetrc ] && printf "LAT=\nLON=\n" > $HOME/.config/sunsetrc
 . $HOME/.config/sunsetrc

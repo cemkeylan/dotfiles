@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # User chooses between dark and light themes
 theme="$(printf "dark\nlight" | dmenu -p "Do you want a light theme or a night theme?")"

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 VID=$(ls $HOME/.watchlater | dmenu -l 30 -p "What will you watch")
 if [ "$VID" = "" ]

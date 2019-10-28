@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 if [ $(printf 'No\nYes' | dmenu -p 'Are you sure you want to reboot?') = 'Yes' ]
 then

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 choice="$(printf "Suspend\nShutdown\nReboot" | dmenu -l 3 -p "Power Menu")"
 

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 csum=$(sha1sum $(which dwm))
 new_csum=""
 while true

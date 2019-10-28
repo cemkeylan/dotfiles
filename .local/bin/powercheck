@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 while :
 do
 	! [ $(cat /sys/class/power_supply/BAT?/status) = "Charging" ] && [ $(cat /sys/class/power_supply/BAT?/capacity) -lt 25 ] && notify-send -u critical "Battery Status" "Your battery is low, please connect to a charger"	

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 answer="$(mpc)"
 case $answer in

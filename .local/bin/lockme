@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 REALNAME="$(getent passwd $USER | cut -d ':' -f 5)"
 [ -z "$REALNAME" ] && REALNAME=$USER

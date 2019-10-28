@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/usr/bin/env sh
 zathura $HOME/.local/share/carbs/carbs.pdf

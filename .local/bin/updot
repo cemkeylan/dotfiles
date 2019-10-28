@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 out() { printf "$1 $2\n" "${@:3}"; }
 error() { out "==> ERROR:" "$@"; } >&2

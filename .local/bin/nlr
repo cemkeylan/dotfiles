@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Next Logon Reminder - a very simple utility to get a reminder the next time you login.
 # i3 runs this script everytime you login, but you could also add it to your .xinitrc

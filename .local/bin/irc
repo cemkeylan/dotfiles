@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 DEFHOST="irc.oftc.net"
 DEFPORT="6667"

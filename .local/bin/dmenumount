@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # Cem Keylan's modification of Luke's dmenumount script
 # I have 3 Arch systems on my computer so I usually won't be
 # mounting my hard drive partitions. Thus, I disabled '/dev/nvme0n1' and '/dev/sda'.

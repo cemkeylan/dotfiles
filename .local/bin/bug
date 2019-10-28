@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # (encoding: UTF-8)
 #
 # bug 1.1 - Simple Bug / ToDo tracker for the command line.

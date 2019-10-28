@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Dmenu Script to change wallpaper
 if [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
