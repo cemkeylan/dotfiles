@@ -46,12 +46,10 @@ map <leader>b :vsp<space>$BIB<CR>
 " Placeholders
 
 " Create place holder
-inoremap <leader>aa <-.->
 map <leader>aa a<-.-><Esc>
 " Go to the next placeholder
-inoremap <leader><leader> <Esc>/<-.-><Enter>"_c5l
-vnoremap <leader><leader> <Esc>/<-.-><Enter>"_c5l
-map <leader><leader> <Esc>/<-.-><Enter>"_c5l
+vnoremap <leader>ph <Esc>/<-.-><Enter>"_c5l
+map <leader>ph <Esc>/<-.-><Enter>"_c5l
 
 " NerdTree
 map <C-o> :NERDTreeToggle<CR>
