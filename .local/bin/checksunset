@@ -28,6 +28,7 @@ MORNING=$(date --date="TZ=\"UTC\" $(curl -s https://api.sunrise-sunset.org/json\
 NIGHT=$(date -d "$(date --date="TZ=\"UTC\" $(curl -s https://api.sunrise-sunset.org/json\?lat\=$LAT\&lng\=$LON\&date\=today | jq .results.sunset | cut -c 2- | awk '{print $1}')" +%H:%M) today + 12 hours" +%H%M)
 
 printf "\
+# Checked at `date`\n\
 SUNRISE=$MORNING\n\
 SUNSET=$NIGHT\n\
 checkdate=`date +%Y%m%d`\n" > $HOME/.sunset
