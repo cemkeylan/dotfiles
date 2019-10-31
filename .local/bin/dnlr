@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+dmenu -p "Add a reminder to be reminded on your next logon" <&- | xargs -r -I {} nlr "{}"
