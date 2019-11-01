@@ -1,0 +1,68 @@
+#
+# simple x hotkey daemon configuration
+#
+
+# Common
+
+mod1 + Return
+	$TERMINAL
+mod1 + shift + m
+	$TERMINAL -t Mail -e neomutt
+mod1 + m
+	$TERMINAL -t Music -e ncmpcpp
+mod1 + n
+	$TERMINAL -e $FILE
+mod1 + shift + n
+	$TERMINAL -e newsboat
+mod1 + o
+	$BROWSER
+mod1 + d
+	rofi -show drun
+mod1 + ctrl + e
+	$TERMINAL -e $EDITOR
+super + v
+	$TERMINAL -e nvim -c VimwikiIndex
+mod1 + p
+	passmenu
+
+
+# Nightmode commands
+
+super + e
+	nightmodetoggle click
+super + shift + e
+	nightmodetoggle disable
+super + shift + w
+	nightmodetoggle cron
+mod1 + x
+	dmenuresources
+
+
+# Multimedia Keys
+
+XF86MonBrightness{Up,Down}
+	xbacklight {-inc,-dec} 10
+XF86Audio{Raise,Lower}Volume
+	pactl set-sink-volume 0 {+,-}5%
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
+XF86Audio{Next,Prev}
+	mpc {next,prev}
+XF86AudioPlay
+	mpctoggle
+
+
+# Power Keys
+
+super + shift + n
+	ask "shutdown now" "Are you sure you want to shutdown?"
+super + shift + r
+	ask "reboot" "Are you sure you want to reboot?"
+super + shift + s
+	systemctl suspend
+
+
+# Other
+
+super + F1
+	readthedocs
