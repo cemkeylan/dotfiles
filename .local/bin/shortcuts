@@ -14,7 +14,7 @@ sed '/#/d' $HOME/.config/files | while read -r ext shrt loc; do
 			echo "comms[\"$shrt\"]=\"\$TERMINAL -e \$EDITOR $loc\"" >> "$dmenushortcuts"
 			;;
 		d) 
-			echo "$shrt=\"cd $loc && ls -a\" \\" >> "$shellshortcuts"
+			echo "$shrt=\"cd $loc && ls -A\" \\" >> "$shellshortcuts"
 			echo "list=\"$shrt \$list\"" >> "$dmenushortcuts"
 			echo "comms[\"$shrt\"]=\"\$TERMINAL -e \$FILE $loc\"" >> "$dmenushortcuts"
 			;;
