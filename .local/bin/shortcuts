@@ -2,9 +2,11 @@
 # Unactivated progs should go to /dev/null
 shellshortcuts="$HOME/.config/shortcutrc"
 dmenushortcuts="$HOME/.config/dshrc"
+lfshortcuts="$HOME/.config/lfshortcuts"
 
 printf "# vim:filetype=sh\nalias " > "$shellshortcuts"
 printf "# vim:filetype=sh\ndeclare -A comms\n" > "$dmenushortcuts"
+printf "# vim:filetype=conf\n" > "$lfshortcuts"
 
 sed '/#/d' $HOME/.config/files | while read -r ext shrt loc; do
 	case $ext in
@@ -17,6 +19,7 @@ sed '/#/d' $HOME/.config/files | while read -r ext shrt loc; do
 			echo "$shrt=\"cd $loc && ls -A\" \\" >> "$shellshortcuts"
 			echo "list=\"$shrt \$list\"" >> "$dmenushortcuts"
 			echo "comms[\"$shrt\"]=\"\$TERMINAL -e \$FILE $loc\"" >> "$dmenushortcuts"
+			echo "map g${shrt} cd ${loc}" >> "$lfshortcuts"
 			;;
 	esac
 done
