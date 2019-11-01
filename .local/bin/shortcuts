@@ -13,12 +13,12 @@ sed '/#/d' $HOME/.config/files | while read -r ext shrt loc; do
 		f) 
 			echo "$shrt=\"\$EDITOR $loc\" \\" >> "$shellshortcuts"
 			echo "list=\"$shrt \$list\"" >> "$dmenushortcuts"
-			echo "comms[\"$shrt\"]=\"\$TERMINAL -e \$EDITOR $loc\"" >> "$dmenushortcuts"
+			echo "comms[\"$shrt\"]=\"\$TERMINAL -e \$EDITOR $(printf "$loc" | sed 's/\~/$HOME/g')\"" >> "$dmenushortcuts"
 			;;
 		d) 
 			echo "$shrt=\"cd $loc && ls -A\" \\" >> "$shellshortcuts"
 			echo "list=\"$shrt \$list\"" >> "$dmenushortcuts"
-			echo "comms[\"$shrt\"]=\"\$TERMINAL -e \$FILE $loc\"" >> "$dmenushortcuts"
+			echo "comms[\"$shrt\"]=\"\$TERMINAL -e \$FILE $(printf "$loc" | sed 's/\~/$HOME/g')\"" >> "$dmenushortcuts"
 			echo "map g${shrt} cd ${loc}" >> "$lfshortcuts"
 			;;
 	esac
