@@ -1,0 +1,22 @@
+#!/usr/bin/env sh
+# Unactivated progs should go to /dev/null
+shellshortcuts="$HOME/.config/shortcutrc"
+dmenushortcuts="$HOME/.config/dshrc"
+
+printf "# vim:filetype=sh\nalias " > "$shellshortcuts"
+printf "# vim:filetype=sh\ndeclare -A comms\n" > "$dmenushortcuts"
+
+sed '/#/d' $HOME/.config/files | while read -r ext shrt loc; do
+	case $ext in
+		f) 
+			echo "$shrt=\"\$EDITOR $loc\" \\" >> "$shellshortcuts"
+			echo "list=\"$shrt \$list\"" >> "$dmenushortcuts"
+			echo "comms[\"$shrt\"]=\"\$TERMINAL -e \$EDITOR $loc\"" >> "$dmenushortcuts"
+			;;
+		d) 
+			echo "$shrt=\"cd $loc && ls -a\" \\" >> "$shellshortcuts"
+			echo "list=\"$shrt \$list\"" >> "$dmenushortcuts"
+			echo "comms[\"$shrt\"]=\"\$TERMINAL -e \$FILE $loc\"" >> "$dmenushortcuts"
+			;;
+	esac
+done

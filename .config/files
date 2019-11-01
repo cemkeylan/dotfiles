@@ -1,0 +1,18 @@
+# Syntax:
+# d for directories
+# f for files
+# "d/f" "shortcut" "file/directory"
+# Example:
+# f cv  $HOME/.config/nvim/init.vim
+# d bin $HOME/.local/bin
+#
+f cv   $HOME/.config/nvim/init.vim
+f cfz  $HOME/.zshrc
+f cfp  $HOME/.profile
+f cfcp $HOME/.customprofile
+f csf  $HOME/.config/files
+f csd  $HOME/.config/directories
+f bib  $BIB
+d pr   $HOME/Projects
+d bin  $HOME/.local/bin
+d df   $HOME/dotfiles
