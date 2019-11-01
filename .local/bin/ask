@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# Dmenu binary prompt
+# Usage: 
+# ./ask "shutdown -h now" "Do you want to shutdown?"
+
+[ "$(printf "No\\nYes" | dmenu -i -p "$2")" = "Yes" ] && $1
