@@ -24,6 +24,8 @@ super + v
 	$TERMINAL -e nvim -c VimwikiIndex
 mod1 + p
 	passmenu
+super + o
+	dsh
 
 
 # Nightmode commands
