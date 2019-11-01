@@ -3,15 +3,16 @@
 # f for files
 # "d/f" "shortcut" "file/directory"
 # Example:
-# f cv  $HOME/.config/nvim/init.vim
-# d bin $HOME/.local/bin
+# f cv  ~/.config/nvim/init.vim
+# d bin ~/.local/bin
 #
-f cv   $HOME/.config/nvim/init.vim
-f cfz  $HOME/.zshrc
-f cfp  $HOME/.profile
-f cfcp $HOME/.customprofile
-f csf  $HOME/.config/files
-f bib  $BIB
-d pr   $HOME/Projects
-d bin  $HOME/.local/bin
-d df   $HOME/dotfiles
+f cv   ~/.config/nvim/init.vim
+f cfz  ~/.zshrc
+f cfp  ~/.profile
+f cfcp ~/.customprofile
+f csf  ~/.config/files
+d pr   ~/Projects
+d bin  ~/.local/bin
+d df   ~/dotfiles
+d dl   ~/Downloads
+d cf   ~/.config
