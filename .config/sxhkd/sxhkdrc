@@ -26,6 +26,8 @@ mod1 + p
 	passmenu
 super + o
 	dsh
+mod1 + c
+	$TERMINAL -e calcurse
 
 
 # Nightmode commands
