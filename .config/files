@@ -16,3 +16,6 @@ d bin  ~/.local/bin
 d df   ~/dotfiles
 d dl   ~/Downloads
 d cf   ~/.config
+d h    ~/
+f vw   ~/.wiki/index.wiki
+f sxh  ~/.config/sxhkd/sxhkdrc
