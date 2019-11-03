@@ -2,4 +2,6 @@
 
 REALNAME="$(getent passwd $USER | cut -d ':' -f 5)"
 [ -z "$REALNAME" ] && REALNAME=$USER
-sxlock -u "$REALNAME"
+sxlock -u "$REALNAME" &
+xset dpms force off
+mpc pause
