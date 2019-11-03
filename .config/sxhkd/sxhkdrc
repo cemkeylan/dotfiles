@@ -28,6 +28,8 @@ super + o
 	dsh
 mod1 + c
 	$TERMINAL -e calcurse
+super + shift + m
+	$TERMINAL -e pulsemixer
 
 
 # Nightmode commands
