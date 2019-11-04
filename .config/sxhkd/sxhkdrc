@@ -30,6 +30,10 @@ mod1 + c
 	$TERMINAL -e calcurse
 super + shift + m
 	$TERMINAL -e pulsemixer
+super + shift + c
+	mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --title='mpvfloat' /dev/video0
+mod1 + ctrl + k
+	killall screenkey || screenkey
 
 
 # Nightmode commands
@@ -61,11 +65,11 @@ XF86AudioPlay
 # Power Keys
 
 super + shift + n
-	ask "shutdown now" "Are you sure you want to shutdown?"
+	ask "sudo -A shutdown -h now" "Are you sure you want to shutdown?"
 super + shift + r
-	ask "reboot" "Are you sure you want to reboot?"
+	ask "sudo -A shutdown -r now" "Are you sure you want to reboot?"
 super + shift + s
-	systemctl suspend
+	$HOME/.local/bin/suspendsys
 
 
 # Other
