@@ -1,0 +1,4 @@
+*/15 * * * * export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus; export DISPLAY=:0; . $HOME/.profile; $HOME/.local/bin/nightmodetoggle cron
+#*/10 * * * * $HOME/.local/bin/checksunset
+
+# vi:filetype=crontab
