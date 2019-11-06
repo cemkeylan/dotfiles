@@ -177,14 +177,7 @@ ex ()
   fi
 }
 
-# Default Applications and Configuration Directory
-export EDITOR="/usr/bin/nvim"
-export TERMINAL="st"
-export BROWSER="qutebrowser"
-export XDG_CONFIG_HOME=$HOME/.config
-
 # Personal Scripts
 set -o vi
-export VIMUP=TRUE
 
 source $HOME/.profile
