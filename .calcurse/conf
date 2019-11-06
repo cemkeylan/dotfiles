@@ -1,7 +1,7 @@
 appearance.calendarview=monthly
 appearance.compactpanels=yes
 appearance.defaultpanel=calendar
-appearance.layout=1
+appearance.layout=3
 appearance.notifybar=yes
 appearance.sidebarwidth=1
 appearance.theme=cyan on default
@@ -16,7 +16,7 @@ general.autogc=no
 general.autosave=yes
 general.confirmdelete=yes
 general.confirmquit=no
-general.firstdayofweek=sunday
+general.firstdayofweek=monday
 general.periodicsave=0
 general.systemdialogs=no
 notification.command=printf '\a'
