@@ -1,15 +1,51 @@
+#
+# CARBS aliases file
+#
+
+# Program alterations
 alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
+alias df='df -h' du="du -h"               # human-readable sizes
 alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias less=vimpager
+alias emacs="emacs -nw"                   # Do not launch emacs with a GUI
+
+# Simple shortcuts
 alias c="clear"
 alias l="ls"
 alias rm='rm -v'
+
+# Lazy shortcuts
 alias mutt="neomutt"
-alias cfb="vim $HOME/.bashrc"
+alias vim="nvim"                         # Lol I forget typing nvim
+
+# Source shell rc
 alias sb="source $HOME/.bashrc"
 alias sz="source $HOME/.zshrc"
-alias vim="nvim"                         # Lol I forget typing nvim
+
+# Youtube MP3 alias
 alias ymp3="youtube-dl --audio-format mp3 -x"
-alias emacs="emacs -nw"
+
+# Distro-specific ##################################################################
+
+# Arch specific aliases 
+# pacman
+alias pSyu="sudo pacman -Syu"
+alias pS="sudo pacman -S"
+alias pSs="pacman -Ss"
+alias pR="sudo pacman -R"
+alias pSy="sudo pacman -Sy"
+alias pSyy="sudo pacman -Syy"
+alias pSyyu="sudo pacman -Syyu"
+
+# yay
+alias yS="yay -S"
+alias ySs="yay -Ss"
+alias ySyu="yay -Syu"
+
+# Void specific aliases 
+# xbps
+alias xs="xbps-query -R -s"
+alias xi="sudo xbps-install"
+alias xr="sudo xbps-remove"
+alias xrC="sudo xbps-reconfigure"
+
+# vim:filetype=sh
