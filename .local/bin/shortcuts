@@ -8,7 +8,7 @@ printf "# vim:filetype=sh\nalias " > "$shellshortcuts"
 printf "# vim:filetype=sh\ndeclare -A comms\n" > "$dmenushortcuts"
 printf "# vim:filetype=conf\n" > "$lfshortcuts"
 
-sed '/#/d' $HOME/.config/files | while read -r ext shrt loc; do
+sed '/#/d' "$HOME"/.config/files | awk 'NF' | while read -r ext shrt loc; do
 	case $ext in
 		f) 
 			echo "$shrt=\"\$EDITOR $loc\" \\" >> "$shellshortcuts"
