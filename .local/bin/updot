@@ -5,6 +5,9 @@ error() { out "ERROR: $@" ; } >&2
 msg() { out "==> $@" ; }
 die() { error "$@"; exit 1; }
 
+command -V pacman >/dev/null 2>&1 && carbs="carbs" && alias install="sudo pacman -S --noconfirm --needed"
+command -V xbps-install >/dev/null 2>&1 && carbs="vcarbs" && alias install="sudo xbps-install -y"
+
 usage() {
 	cat <<EOF
 usage: ${0##*/} [options]
@@ -30,17 +33,19 @@ fi
 
 while getopts ':p::r::P:d' flag; do
 	case $flag in
-		P) curl -sLo $OPTARG https://raw.githubusercontent.com/cemkeylan/carbs/master/progs.csv && exit || die 'Could not download progs.csv' ;;
-		p) [ -e $OPTARG ] && progs=$OPTARG || die 'Could not find progs.csv file' ;;
-		r) git ls-remote $OPTARG >/dev/null 2>&1 && dotfiles=$OPTARG || die 'Could not find repo' ;;
+		P) [ -n "$carbs" ] && curl -sLo "$OPTARG" https://git.ckyln.com/raw/${carbs}/progs.csv && exit || die 'Could not download progs.csv' ;;
+		p) [ -e "$OPTARG" ] && progs=$OPTARG || die 'Could not find progs.csv file' ;;
+		r) git ls-remote "$OPTARG" >/dev/null 2>&1 && dotfiles=$OPTARG || die 'Could not find repo' ;;
 		d) dotonly=1 ;;
 		:) die '%s: option requires argument -- '\''%s'\' "${0##*/}" "$OPTARG" ;;
 		?) die '%s: invalid option -- '\''%s'\' "${0##*/}" "$OPTARG" ;;
 	esac
 done
 
-[ -z $dotfiles ] && dotfiles="git://git.ckyln.com/dotfiles"
-[ -z $progs ] && curl -sLo /tmp/progs.csv https://raw.githubusercontent.com/cemkeylan/carbs/master/progs.csv && progs="/tmp/progs.csv"
+[ -z "$dotonly" ] && [ -z "$carbs" ] && \
+	die "It seems like you don't use Arch Linux or Void Linux\\nYou might want to run updot -d"
+[ -z "$dotfiles" ] && dotfiles="git://git.ckyln.com/dotfiles"
+[ -z "$progs" ] && curl -sLo /tmp/progs.csv https://raw.githubusercontent.com/cemkeylan/carbs/master/progs.csv && progs="/tmp/progs.csv"
 
 welcomepage() {
 	clear
@@ -73,8 +78,8 @@ read ans
 makeinstall() {
 	cd /tmp
 	dir="$(mktemp -d)"
-	git clone $1 $dir || die "Could not clone git repo"
-	cd $dir
+	git clone "$1" "$dir" || die "Could not clone git repo"
+	cd "$dir"
 	make || die "Could not build $1"
 	sudo make install || die "Could not install $1"
 }
@@ -86,26 +91,26 @@ installcsv() {\
 		case $src in
 			y)
 				out "Installing $name"
-				yay -S --noconfirm --needed $name >/dev/null || die "Could not install $name"
+				yay -S --noconfirm --needed "$name" >/dev/null || die "Could not install $name"
 				msg "Installed $name" ;;
 			g)
 				out "Installing $name"
-				makeinstall $name || die "Could not install $name"
+				makeinstall "$name" || die "Could not install $name"
 				msg "Installed $name" ;;
 			*)
 				out "Installing $name"
-				sudo pacman -S --noconfirm --needed $name >/dev/null || die "Could not install $name"
+				install "$name" >/dev/null || die "Could not install $name"
 				msg "Installed $name" ;;
 		esac
 	done < $progs
 }
 
 dotfilesinstall() {
-	cd /tmp
+	cd /tmp || return 1
 	dir="$(mktemp -d)"
-	git clone --recursive --depth 1 $1 $dir/repo
-	cp -rfT $dir/repo $HOME
-	rm $HOME/README* $HOME/LICENSE $HOME/.git -rf $HOME/screenshots
+	git clone --recursive --depth 1 "$1" "$dir/repo" || return 1
+	cp -rfT "$dir/repo" "$HOME" || die "Could not copy repository to your home directory"
+	rm "$HOME"/README* "$HOME"/LICENSE "$HOME"/.git -rf "$HOME"/screenshots
 }
 
 finalize() {
@@ -114,5 +119,5 @@ printf "Carbs update script is finished\\n\\n"
 
 welcomepage
 [ -z $dotonly ] && installcsv
-dotfilesinstall $dotfiles
+dotfilesinstall $dotfiles || die "Could not install dotfiles"
 finalize

@@ -1,0 +1,31 @@
+#!/usr/bin/env sh
+
+usage() {
+	cat <<EOF
+usage: ${0##*/} [options]
+
+  Options:
+    -r <repo url>     Use an alternative dotfiles repo
+    -p <progs.csv>    Use an alternative progs.csv file (must be local)
+    -P <filename>     Download progs.csv and exit
+    -d		      Update dotfiles only
+
+    -h/--help         Print this help message
+
+Updot updates the dotfiles and installs the current progs.csv
+
+EOF
+}
+
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
+	usage
+	exit
+fi
+
+
+OPTIONS="$@"
+script="$(mktemp)"
+cat "$HOME"/.local/bin/updot > "$script"
+chmod +x "$script"
+"$script" "$OPTIONS"
