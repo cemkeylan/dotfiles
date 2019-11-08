@@ -8,37 +8,14 @@ die() { error "$@"; exit 1; }
 command -V pacman >/dev/null 2>&1 && carbs="carbs" && alias install="sudo pacman -S --noconfirm --needed"
 command -V xbps-install >/dev/null 2>&1 && carbs="vcarbs" && alias install="sudo xbps-install -y"
 
-usage() {
-	cat <<EOF
-usage: ${0##*/} [options]
-
-  Options:
-    -r <repo url>     Use an alternative dotfiles repo
-    -p <progs.csv>    Use an alternative progs.csv file (must be local)
-    -P <filename>     Download progs.csv and exit
-    -d		      Update dotfiles only
-
-    -h/--help         Print this help message
-
-Updot updates the dotfiles and installs the current progs.csv
-
-EOF
-}
-
-
-if [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
-	usage
-	exit
-fi
-
 while getopts ':p::r::P:d' flag; do
 	case $flag in
 		P) [ -n "$carbs" ] && curl -sLo "$OPTARG" https://git.ckyln.com/raw/${carbs}/progs.csv && exit || die 'Could not download progs.csv' ;;
 		p) [ -e "$OPTARG" ] && progs=$OPTARG || die 'Could not find progs.csv file' ;;
 		r) git ls-remote "$OPTARG" >/dev/null 2>&1 && dotfiles=$OPTARG || die 'Could not find repo' ;;
 		d) dotonly=1 ;;
-		:) die '%s: option requires argument -- '\''%s'\' "${0##*/}" "$OPTARG" ;;
-		?) die '%s: invalid option -- '\''%s'\' "${0##*/}" "$OPTARG" ;;
+		:) die "$OPTARG option requires argument" ;;
+		?) die "invalid option -- $OPTARG" ;;
 	esac
 done
 
