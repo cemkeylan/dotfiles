@@ -44,6 +44,7 @@ alias ySyu="yay -Syu"
 # Void specific aliases 
 # xbps
 alias xs="xbps-query -R -s"
+alias xSu="sudo xbps-install -Su"
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove"
 alias xrC="sudo xbps-reconfigure"
