@@ -1,10 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
-out() { printf "$1 $2\n" "${@:3}"; }
-error() { out "==> ERROR:" "$@"; } >&2
-warning() { out "==> WARNING:" "$@"; } >&2
-msg() { out "==>" "$@"; }
-msg2() { out "  ->" "$@";}
+out() { printf "$@\\n" ;}
+error() { out "ERROR: $@" ; } >&2
+msg() { out "==> $@" ; }
 die() { error "$@"; exit 1; }
 
 usage() {
@@ -69,35 +67,35 @@ before you continue.
 EOF
 printf "Proceed? (y/N) "
 read ans
-[ "$ans" = "y" ] || die 'User exited'
+[ "$ans" = "y" ] || die "User exited"
 }
 
 makeinstall() {
 	cd /tmp
 	dir="$(mktemp -d)"
-	git clone $1 $dir || die 'Could not clone git repo'
+	git clone $1 $dir || die "Could not clone git repo"
 	cd $dir
-	make || die 'Could not build %s' "$1"
-	sudo make install || die 'Could not install %s' "$1"
+	make || die "Could not build $1"
+	sudo make install || die "Could not install $1"
 }
 
 installcsv() {\
-	[ -e $progs ] || die 'Could not retrieve progs.csv'
+	[ -e $progs ] || die "Could not retrieve progs.csv"
 	while IFS=, read -r src name
 	do
 		case $src in
 			y)
-				out 'Installing %s' "$name"
-				yay -S --noconfirm --needed $name >/dev/null || die 'Could not install %s' "$name"
-				msg 'Installed %s' "$name" ;;
+				out "Installing $name"
+				yay -S --noconfirm --needed $name >/dev/null || die "Could not install $name"
+				msg "Installed $name" ;;
 			g)
-				out 'Installing %s' "$name"
-				makeinstall $name || die 'Could not install %s' "$name"
-				msg 'Installed %s' "$name" ;;
+				out "Installing $name"
+				makeinstall $name || die "Could not install $name"
+				msg "Installed $name" ;;
 			*)
-				out 'Installing %s' "$name"
-				sudo pacman -S --noconfirm --needed $name >/dev/null || die 'Could not install %s' "$name"
-				msg 'Installed %s' "$name" ;;
+				out "Installing $name"
+				sudo pacman -S --noconfirm --needed $name >/dev/null || die "Could not install $name"
+				msg "Installed $name" ;;
 		esac
 	done < $progs
 }
@@ -111,10 +109,7 @@ dotfilesinstall() {
 }
 
 finalize() {
-	cat <<EOF
-Carbs update script is finished
-
-EOF
+printf "Carbs update script is finished\\n\\n"
 }
 
 welcomepage
