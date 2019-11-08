@@ -5,17 +5,23 @@
 # Example:
 # f cv  ~/.config/nvim/init.vim
 # d bin ~/.local/bin
-#
+
+# Important directories
+d h    ~/
+d bin  ~/.local/bin
+d cf   ~/.config
+d dl   ~/Downloads
+d doc  ~/Documents
+d pr   ~/Projects
+
+# Configuration files
 f cv   ~/.config/nvim/init.vim
 f cfz  ~/.zshrc
 f cfp  ~/.profile
 f cfcp ~/.customprofile
+f cfcs ~/.custom.sh
 f csf  ~/.config/files
-d pr   ~/Projects
-d bin  ~/.local/bin
-d df   ~/dotfiles
-d dl   ~/Downloads
-d cf   ~/.config
-d h    ~/
-f vw   ~/.wiki/index.wiki
 f sxh  ~/.config/sxhkd/sxhkdrc
+
+# Vimwiki index
+f vw   ~/.wiki/index.wiki
