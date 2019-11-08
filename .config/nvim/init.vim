@@ -25,6 +25,7 @@ Plug 'vimwiki/vimwiki'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/goyo.vim'
 Plug 'jreybert/vimagit'
+Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 
@@ -53,3 +54,11 @@ map <leader>ph <Esc>/<-.-><Enter>"_c5l
 
 " NerdTree
 map <C-o> :NERDTreeToggle<CR>
+
+" Syntastic
+map <leader>syn :SyntasticToggleMode<CR>
+" Syntastic tex
+let g:syntastic_tex_chktex_post_args = "-n 8 -n 24"
+" Syntastic shell
+let g:syntastic_sh_checkers = ["shellcheck", "checkbashisms", "sh"]
+let g:syntastic_sh_shellcheck_post_args = "-e SC2145 -e SC2015 -e SC2162 -e SC1090"
