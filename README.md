@@ -20,6 +20,7 @@ Contents
    * neovim
    * qutebrowser
    * rofi
+   * newsboat
 
 
 Installation on Arch and derivatives
