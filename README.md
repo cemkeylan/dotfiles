@@ -37,6 +37,15 @@ https://github.com/cemkeylan/carbs
 for more info
 
 
+On Void Linux
+-------------
+
+My dotfiles for Void Linux and Installation Notes can be found on
+https://github.com/cemkeylan/vdotfiles
+or
+https://git.ckyln.com/vdotfiles/log.html
+
+
 See also
 --------
 
