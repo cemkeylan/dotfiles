@@ -9,6 +9,8 @@ export FILE="lf"
 
 export XDG_CONFIG_HOME=$HOME/.config
 
+export ZATHURA_RECOLOR="true"
+
 export GOPATH=$HOME/go
 export PATH=$HOME/.local/bin/:$PATH
 export PATH=$HOME/.scripts/:$PATH
