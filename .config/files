@@ -18,6 +18,7 @@ d pr   ~/Projects
 f cv   ~/.config/nvim/init.vim
 f cfz  ~/.zshrc
 f cfp  ~/.profile
+f ali  ~/.aliases
 f cfcp ~/.customprofile
 f cfcs ~/.custom.sh
 f csf  ~/.config/files
