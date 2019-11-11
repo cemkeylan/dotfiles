@@ -44,6 +44,10 @@ map <leader>yd :Goyo! <CR>
 " Get bibliography
 map <leader>b :vsp<space>$BIB<CR>
 
+" Set bg
+map <leader>bgd :set bg=dark<CR>
+map <leader>bgl :set bg=light<CR>
+
 " Placeholders
 
 " Create place holder
