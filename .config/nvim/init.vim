@@ -66,3 +66,6 @@ let g:syntastic_tex_chktex_post_args = "-n 8 -n 24"
 " Syntastic shell
 let g:syntastic_sh_checkers = ["shellcheck", "checkbashisms", "sh"]
 let g:syntastic_sh_shellcheck_post_args = "-e SC2145 -e SC2015 -e SC2162 -e SC1090"
+
+" Clear tex build files after exit
+autocmd VimLeave *.tex !texclear %
