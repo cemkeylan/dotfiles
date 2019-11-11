@@ -2,6 +2,3 @@
 	path = .config/qutebrowser/dracula
 	url = https://github.com/evannagle/qutebrowser-dracula-theme
 	branch = master
-[submodule ".local/share/xresource-themes"]
-	path = .local/share/xresource-themes
-	url = git://git.ckyln.com/xresource-themes.git
