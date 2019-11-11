@@ -23,6 +23,7 @@ f cfcp ~/.customprofile
 f cfcs ~/.custom.sh
 f csf  ~/.config/files
 f sxh  ~/.config/sxhkd/sxhkdrc
+f lfrc ~/.config/lf/lfrc
 
 # Vimwiki index
 f vw   ~/.wiki/index.wiki
