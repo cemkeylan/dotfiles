@@ -24,8 +24,7 @@ if [ "$1" = "-h" ] || [ "$1" = "--help" ] ; then
 fi
 
 
-OPTIONS="$@"
 script="$(mktemp)"
 cat "$HOME"/.local/bin/updot > "$script"
 chmod +x "$script"
-"$script" "$OPTIONS"
+"$script" "$@"

@@ -5,8 +5,8 @@ error() { out "ERROR: $@" ; } >&2
 msg() { out "==> $@" ; }
 die() { error "$@"; exit 1; }
 
-command -V pacman >/dev/null 2>&1 && carbs="carbs" && alias install="sudo pacman -S --noconfirm --needed"
-command -V xbps-install >/dev/null 2>&1 && carbs="vcarbs" && alias install="sudo xbps-install -y"
+pacman --version >/dev/null 2>&1 && carbs="carbs" && alias install="sudo pacman -S --noconfirm --needed" && defdot="git://git.ckyln.com/dotfiles"
+xbps-install --version >/dev/null 2>&1 && carbs="vcarbs" && alias install="sudo xbps-install -y" && defdot="git://git.ckyln.com/vdotfiles"
 
 while getopts ':p::r::P:d' flag; do
 	case $flag in
@@ -21,7 +21,7 @@ done
 
 [ -z "$dotonly" ] && [ -z "$carbs" ] && \
 	die "It seems like you don't use Arch Linux or Void Linux\\nYou might want to run updot -d"
-[ -z "$dotfiles" ] && dotfiles="git://git.ckyln.com/dotfiles"
+[ -z "$dotfiles" ] && dotfiles="${defdot-git://git.ckyln.com/dotfiles}"
 [ -z "$progs" ] && curl -sLo /tmp/progs.csv https://raw.githubusercontent.com/cemkeylan/carbs/master/progs.csv && progs="/tmp/progs.csv"
 
 welcomepage() {
@@ -40,6 +40,8 @@ welcomepage() {
 ================================================== 
 
 Welcome to Cem's Auto-Rice Bootstrapping Script!
+
+Dotfiles Repository: $dotfiles
 
 WARNING:
 This update might break your personal changes, so 
