@@ -1,4 +1,5 @@
 #!/usr/bin/env sh
+. "$HOME"/.profile
 
 # User chooses between dark and light themes
 theme="$(printf "dark\nlight" | dmenu -p "Do you want a light theme or a night theme?")"
@@ -8,4 +9,5 @@ lsrsrc="$(ls $HOME/.local/share/xresource-themes/$theme/)"
 selrsrc="$(echo "$lsrsrc" | dmenu -p "choose the resource you want to set")"
 [ -z "$selrsrc" ] && exit
 xrdb $HOME/.local/share/xresource-themes/$theme/$selrsrc && notify-send "Xresources Changed" "Your theme has been set to $selrsrc"
+[ "$ZATHURA_RECOLOR" = "true" ] && zc
 printf "$HOME/.local/share/xresource-themes/$theme/$selrsrc" > $HOME/.lastresource

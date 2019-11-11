@@ -1,0 +1,5 @@
+include /tmp/zathura-color
+set selection-clipboard clipboard
+set pages-per-row 1
+
+# vim:filetype=conf

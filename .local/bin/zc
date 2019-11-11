@@ -1,0 +1,43 @@
+#!/usr/bin/env sh
+if [ "$1" = "off" ]; then
+	sed -i 's/true/false/g' /tmp/zathura-color
+	exit 0
+fi
+
+. "$HOME"/.profile
+
+foreground="$(xrdb -query | grep foreground | head -n 1 | awk '{print $2}')"
+background="$(xrdb -query | grep background | head -n 1 | awk '{print $2}')"
+color1="$(xrdb -query | grep color1 | head -n 1 | awk '{print $2}')"
+color2="$(xrdb -query | grep color2 | head -n 1 | awk '{print $2}')"
+
+rm /tmp/zathura-color >/dev/null 2>&1
+cat >/tmp/zathura-color <<EOF
+set recolor "$ZATHURA_RECOLOR"
+
+set completion-bg "$background"
+set completion-fg "$foreground"
+set completion-group-bg "$background"
+set completion-group-fg "$color2"
+set completion-highlight-bg "$foreground"
+set completion-highlight-fg "$background"
+set recolor-lightcolor "$background"
+set recolor-darkcolor "$foreground"
+set default-bg "$background"
+set inputbar-bg "$background"
+set inputbar-fg "$foreground"
+set notification-bg "$background"
+set notification-fg "$foreground"
+set notification-error-bg "$color1"
+set notification-error-fg "$foreground"
+set notification-warning-bg "$color1"
+set notification-warning-fg "$foreground"
+set statusbar-bg "$background"
+set statusbar-fg "$foreground"
+set index-bg "$background"
+set index-fg "$foreground"
+set index-active-bg "$foreground"
+set index-active-fg "$background"
+set render-loading-bg "$background"
+set render-loading-fg "$foreground"
+EOF
