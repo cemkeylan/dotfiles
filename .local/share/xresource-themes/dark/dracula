@@ -1,0 +1,49 @@
+! Dracula Xresources palette
+st.alpha: 0.92
+
+#define fg             #F8F8F2
+#define bg             #282A36
+#define c0             #000000
+#define c8             #4D4D4D
+#define c1             #FF5555
+#define c9             #FF6E67
+#define c2             #50FA7B
+#define c10            #5AF78E
+#define c3             #F1FA8C
+#define c11            #F4F99D
+#define c4             #9D638A
+#define c12            #CAA9FA
+#define c5             #FF79C6
+#define c13            #FF92D0
+#define c6             #8BE9FD
+#define c14            #9AEDFE
+#define c7             #BFBFBF
+#define c15            #E6E6E6
+
+
+*.foreground:           fg     
+*.background:           bg     
+*.color0:               c0 
+*.color8:               c8 
+*.color1:               c1 
+*.color9:               c9 
+*.color2:               c2 
+*.color10:              c10
+*.color3:               c3 
+*.color11:              c11
+*.color4:               c4 
+*.color12:              c12
+*.color5:               c5 
+*.color13:              c13
+*.color6:               c6 
+*.color14:              c14
+*.color7:               c7 
+*.color15:              c15
+
+dwm.normbgcolor:        bg
+dwm.normfgcolor:        c7
+dwm.selfgcolor:         fg 
+dwm.selbgcolor:         c4
+dwm.selbordercolor:     c4
+
+! vi:set filetype=xdefaults:

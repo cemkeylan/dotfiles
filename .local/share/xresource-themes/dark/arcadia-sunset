@@ -1,0 +1,50 @@
+! arcadia-sunset
+! modified by Cem Keylan
+st.alpha: 0.96
+
+#define fg       #e4e4e4
+#define bg       #262626
+#define c0                    #262626
+#define c8                    #6c6c6c
+#define c1                    #af005f
+#define c9                    #af5f87
+#define c2                    #1c5f5f
+#define c10                   #008787
+#define c3                    #af871c
+#define c11                   #dfaf00
+#define c4                    #1c5f87
+#define c12                   #5f87af
+#define c5                    #5f1c5f
+#define c13                   #875f87
+#define c6                    #005f87
+#define c14                   #0087af
+#define c7                    #afafaf
+#define c15                   #e4e4e4
+
+*.foreground:           fg     
+*.background:           bg     
+*.color0:               c0 
+*.color8:               c8 
+*.color1:               c1 
+*.color9:               c9 
+*.color2:               c2 
+*.color10:              c10
+*.color3:               c3 
+*.color11:              c11
+*.color4:               c4 
+*.color12:              c12
+*.color5:               c5 
+*.color13:              c13
+*.color6:               c6 
+*.color14:              c14
+*.color7:               c7 
+*.color15:              c15
+
+dwm.normbgcolor:        bg
+dwm.normfgcolor:        c7
+dwm.selfgcolor:         fg 
+dwm.selbgcolor:         c4
+dwm.selbordercolor:     c4
+
+
+! vi: set filetype=xdefaults:
