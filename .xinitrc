@@ -8,6 +8,7 @@ nightmodetoggle disable &
 powercheck &
 slstatus &
 [ -e $HOME/.lastresource ] && xrdb "$(cat $HOME/.lastresource)" || xrdb $HOME/.local/share/xresource-themes/dark/dracula
+zc &
 unclutter &
 numlockx on &
 mpd >/dev/null 2>&1 &
