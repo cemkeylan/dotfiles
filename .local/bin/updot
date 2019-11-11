@@ -8,6 +8,14 @@ die() { error "$@"; exit 1; }
 pacman --version >/dev/null 2>&1 && carbs="carbs" && alias install="sudo pacman -S --noconfirm --needed" && defdot="git://git.ckyln.com/dotfiles"
 xbps-install --version >/dev/null 2>&1 && carbs="vcarbs" && alias install="sudo xbps-install -y" && defdot="git://git.ckyln.com/vdotfiles"
 
+update() {
+	if [ "$carbs" = "carbs" ]; then
+		sudo pacman -Syu --noconfirm || die "Could not update the system"
+	elif [ "$carbs" = "vcarbs" ]; then
+		sudo xbps-install -Syu && sudo xbps-install -Syu || die "Could not update the system"
+	fi
+}
+
 while getopts ':p::r::P:d' flag; do
 	case $flag in
 		P) [ -n "$carbs" ] && curl -sLo "$OPTARG" https://git.ckyln.com/raw/${carbs}/progs.csv && exit || die 'Could not download progs.csv' ;;
@@ -64,6 +72,8 @@ makeinstall() {
 }
 
 installcsv() {\
+        out "It is best to update the system before updating CARBS packages\\nUpdate system? (y/n)"
+	read ans && [ "$ans" = "y" ] && update
 	[ -e $progs ] || die "Could not retrieve progs.csv"
 	while IFS=, read -r src name
 	do
