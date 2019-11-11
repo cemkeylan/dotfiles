@@ -63,10 +63,10 @@ read ans
 }
 
 makeinstall() {
-	cd /tmp
+	cd /tmp || return 1
 	dir="$(mktemp -d)"
 	git clone "$1" "$dir" || die "Could not clone git repo"
-	cd "$dir"
+	cd "$dir" || return 1
 	make || die "Could not build $1"
 	sudo make install || die "Could not install $1"
 }
