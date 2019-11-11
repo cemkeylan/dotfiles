@@ -22,7 +22,7 @@ done
 [ -z "$dotonly" ] && [ -z "$carbs" ] && \
 	die "It seems like you don't use Arch Linux or Void Linux\\nYou might want to run updot -d"
 [ -z "$dotfiles" ] && dotfiles="${defdot-git://git.ckyln.com/dotfiles}"
-[ -z "$progs" ] && curl -sLo /tmp/progs.csv https://raw.githubusercontent.com/cemkeylan/carbs/master/progs.csv && progs="/tmp/progs.csv"
+[ -z "$progs" ] && curl -sLo /tmp/progs.csv https://git.ckyln.com/raw/${carbs-carbs}/progs.csv  && progs="/tmp/progs.csv"
 
 welcomepage() {
 	clear
