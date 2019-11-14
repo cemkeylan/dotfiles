@@ -22,6 +22,8 @@ mod1 + ctrl + e
 	$TERMINAL -e $EDITOR
 super + v
 	$TERMINAL -e nvim -c VimwikiIndex
+super + shift + v
+	$TERMINAL -e nvim -c VimwikiUISelect
 mod1 + p
 	passmenu
 super + o
