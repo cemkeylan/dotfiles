@@ -17,6 +17,7 @@ export PATH=$HOME/.scripts/:$PATH
 export PATH=/usr/local/bin/:$PATH
 export PATH=$HOME/.vim/bundle/vim-live-latex-preview/bin/:$PATH
 export PATH=$HOME/.gem/ruby/2.6.0/bin/:$PATH
+export PATH=$HOME/go/bin:$PATH
 . $HOME/.aliases
 
 export BUG_PROJECT="$HOME/.todo.bug"
