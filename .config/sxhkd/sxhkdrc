@@ -36,6 +36,8 @@ super + shift + c
 	mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --title='mpvfloat' /dev/video0
 mod1 + ctrl + k
 	killall screenkey || screenkey
+mod1 + shift + e
+	ask "killall dwm" "Do you want to exit dwm?"
 
 
 # Nightmode commands
