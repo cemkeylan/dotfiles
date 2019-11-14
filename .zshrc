@@ -131,6 +131,8 @@ lfcd () {
 bindkey -s '^e' "scriptedit\n"
 scriptedit() {ls $HOME/.local/bin/ | fzf | xargs -r -I {} $EDITOR $HOME/.local/bin/{};}
 gcnb() {git branch $1 && git checkout $1;}
+copys() { printf "$1" | sclip ;}
+xtos() { xclip -selection clipboard -o | sclip }
 
 # Stolen from Luke Smith
 # Change cursor shape for different vi modes.
