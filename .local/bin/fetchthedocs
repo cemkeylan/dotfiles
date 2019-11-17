@@ -1,10 +1,12 @@
 #!/usr/bin/env sh
 
+# shellcheck disable=1001
+
 out() { printf "$1\\n"; }
 error() { out "==> ERROR: $@"; } >&2
 die() { error "$@"; exit 1; }
 
 wget -V >/dev/null 2>&1 || die 'wget is not installed'
 out "Installing carbs documentation to $HOME/.local/share/carbs/carbs.pdf"
-mkdir -p $HOME/.local/share/carbs || die 'Could not create directory for carbs documentation'
-wget -O $HOME/.local/share/carbs/carbs.pdf https://gitlab.cemkeylan.com/cemkeylan/carbsdocs/-/jobs/artifacts/master/raw/carbs.pdf\?job\=build || die 'Could not download carbs.pdf'
+mkdir -p "$HOME/.local/share/carbs" || die 'Could not create directory for carbs documentation'
+wget -O "$HOME/.local/share/carbs/carbs.pdf" https://gitlab.cemkeylan.com/cemkeylan/carbsdocs/-/jobs/artifacts/master/raw/carbs.pdf\?job\=build || die 'Could not download carbs.pdf'

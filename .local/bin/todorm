@@ -1,8 +1,0 @@
-#!/usr/bin/env sh
-
-if [ -z $(pacman -T calcurse) ]
-then
-	tail -n +2 $HOME/.calcurse/todo > $HOME/.calcurse/todo.tmp && mv $HOME/.calcurse/todo.tmp $HOME/.calcurse/todo
-else
-        tail -n +2 $HOME/todo.txt > $HOME/todo.txt.tmp && mv $HOME/todo.txt.tmp $HOME/todo.txt
-fi

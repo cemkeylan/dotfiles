@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 # Unactivated progs should go to /dev/null
+
+# shellcheck disable=SC2016
+
 shellshortcuts="$HOME/.config/shortcutrc"
 dmenushortcuts="$HOME/.config/dshrc"
 lfshortcuts="$HOME/.config/lfshortcuts"

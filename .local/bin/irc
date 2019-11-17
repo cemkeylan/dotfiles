@@ -3,9 +3,9 @@
 DEFHOST="irc.oftc.net"
 DEFPORT="6667"
 
-if ! [ -e $HOME/.sicrc ]
+if ! [ -e "$HOME/.sicrc" ]
 then
-	touch $HOME/.sicrc
+	:> "$HOME/.sicrc"
 	UHOST="$(printf "irc.oftc.net\n" | dmenu -i -p "Hello, what host do you want to connect? (default: irc.oftc.net):")"
 	[ -n "$UHOST" ] && HOST="$UHOST" || HOST="$DEFHOST"
 	UPORT="$(printf "6667\n" | dmenu -i -p PORT:)"
@@ -13,9 +13,9 @@ then
 	UNICK="$(printf "$USER\n" | dmenu -i -p NICK:)"
 	[ -n "$UNICK" ] && NICK="$UNICK" || NICK="$USER"
 	printf \
-"#\n# Sic configuration\\n\\nHOST=\"$HOST\"\nPORT=\"$PORT\"\nNICK=\"$NICK\"\n" > $HOME/.sicrc
+"#\n# Sic configuration\\n\\nHOST=\"$HOST\"\nPORT=\"$PORT\"\nNICK=\"$NICK\"\n" > "$HOME/.sicrc"
 	notify-send "Simple IRC Client" "The file has been written to $HOME/.sicrc\n"
 fi
-. $HOME/.sicrc
+. "$HOME/.sicrc"
 
 st -t IRC -e /bin/sh -c "sic -n ${NICK} -h ${HOST} -p ${PORT}"

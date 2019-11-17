@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-. $HOME/.config/dshrc
+# shellcheck disable=2154
+
+. "$HOME/.config/dshrc"
 chosen="$(for i in $list; do printf "$i\\n"; done | dmenu -p "Choose shortcut")"
-echo $chosen
+echo "$chosen"
 [ -z "$chosen" ] && exit
 ${comms[$chosen]}
 

@@ -1,34 +1,34 @@
 #!/usr/bin/env sh
 
-! [ -e $HOME/.config/sunsetrc ] && printf "LAT=\nLON=\n" > $HOME/.config/sunsetrc
-. $HOME/.config/sunsetrc
+# shellcheck disable=SC1001,SC2154
 
-error() {\
-	echo "Error: $1"
-	exit 1
-}
+! [ -e "$HOME/.config/sunsetrc" ] && printf "LAT=\nLON=\n" > "$HOME/.config/sunsetrc"
+. "$HOME/.config/sunsetrc"
+
+error() { echo "Error: $1"; exit 1;}
 
 jq --version >/dev/null 2>&1 || error "You must install jq to continue (https://stedolan.github.io/jq/)"
 
-[ -e $HOME/.sunset ] || touch $HOME/.sunset
-. $HOME/.sunset
-[ "$checkdate" = `date +%Y%m%d` ] && exit  # Don't check anything if you have already checked today.
+[ -e "$HOME/.sunset" ] || touch "$HOME/.sunset"
+. "$HOME/.sunset"
+[ "$checkdate" = "$(date +%Y%m%d)" ] && exit  # Don't check anything if you have already checked today.
 ping sunrise-sunset.org -c 1 -W 5 >/dev/null || exit 1
-if [ -z $LAT ] || [ -z $LON ]; then
-	PUBLIC_IP=`curl -s https://ipinfo.io/ip`
-	LAT=$(curl -s https://ipvigilante.com/${PUBLIC_IP} | \
+if [ -z "$LAT" ] || [ -z "$LON" ]; then
+	PUBLIC_IP="$( curl -s https://ipinfo.io/ip )"
+	LAT=$(curl -s https://ipvigilante.com/"${PUBLIC_IP}" | \
 		jq '.data.latitude' | \
 		cut -c 2- | rev | cut -c 2- | rev )
-	LON=$(curl -s https://ipvigilante.com/${PUBLIC_IP} | \
+	LON=$(curl -s https://ipvigilante.com/"${PUBLIC_IP}" | \
 		jq '.data.longitude' | cut -c 2- | rev | cut -c 2- | rev)
 fi
 
 
-MORNING=$(date --date="TZ=\"UTC\" $(curl -s https://api.sunrise-sunset.org/json\?lat\=$LAT\&lng\=$LON\&date\=today | jq .results.sunrise | cut -c 2- | awk '{print $1}')" +%H%M)
-NIGHT=$(date -d "$(date --date="TZ=\"UTC\" $(curl -s https://api.sunrise-sunset.org/json\?lat\=$LAT\&lng\=$LON\&date\=today | jq .results.sunset | cut -c 2- | awk '{print $1}')" +%H:%M) today + 12 hours" +%H%M)
+MORNING=$(date --date="TZ=\"UTC\" $(curl -s https://api.sunrise-sunset.org/json\?lat\="$LAT"\&lng\="$LON"\&date\=today | jq .results.sunrise | cut -c 2- | awk '{print $1}')" +%H%M)
+NIGHT=$(date -d "$(date --date="TZ=\"UTC\" $(curl -s https://api.sunrise-sunset.org/json\?lat\="$LAT"\&lng\="$LON"\&date\=today | jq .results.sunset | cut -c 2- | awk '{print $1}')" +%H:%M) today + 12 hours" +%H%M)
 
-printf "\
-# Checked at `date`\n\
-SUNRISE=$MORNING\n\
-SUNSET=$NIGHT\n\
-checkdate=`date +%Y%m%d`\n" > $HOME/.sunset
+cat > "$HOME/.sunset" <<EOF
+# Checked at $(date)
+SUNRISE=$MORNING
+SUNSET=$NIGHT
+checkdate=$(date +%Y%m%d)
+EOF

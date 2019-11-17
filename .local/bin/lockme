@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-REALNAME="$(getent passwd $USER | cut -d ':' -f 5)"
+REALNAME="$(getent passwd "$USER" | cut -d ':' -f 5)"
 [ -z "$REALNAME" ] && REALNAME=$USER
 mpc pause &
 sxlock -u "$REALNAME" 2>/dev/null || sxlock -f "-misc-liberation sans-medium-r-normal-*-*-*-*-*-*-*-*-*" -u "$REALNAME"

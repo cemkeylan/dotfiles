@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 
-command -V systemctl >/dev/null 2>&1 && systemctl suspend && exit 0
+systemctl --version >/dev/null 2>&1 && systemctl suspend && exit 0
 sudo -A zzz

@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+file="$(realpath "$1")"
+filetype="$(file --mime-type "$1" | awk 'NF>1{print $NF}')"
+echo "$filetype"
+
+case "$filetype" in
+	text/*) $EDITOR "$file" ;;
+	video/*) nohup mpv "$file" >/dev/null 2>&1 & ;;
+	image/*) nohup sxiv "$file" >/dev/null 2>&1 & ;;
+	application/pdf) nohup zathura "$file" >/dev/null 2>&1 & ;;
+	audio/*) mpv --no-audio-display "$file" ;;
+	*) printf "Unknown application\\n"; exit 1 ;;
+esac

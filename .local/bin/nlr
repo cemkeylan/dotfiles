@@ -15,8 +15,8 @@ if [ -z "$1" ]; then
 	! [ -e "$HOME/.nlr" ] && exit 1
 	while read -r line; do
 		notify-send "Next Logon Reminder" "$line"
-	done < $HOME/.nlr
-	rm $HOME/.nlr
+	done < "$HOME/.nlr"
+	rm "$HOME/.nlr"
 else
-	echo "$1" >> $HOME/.nlr
+	echo "$1" >> "$HOME/.nlr"
 fi

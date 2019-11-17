@@ -1,10 +1,5 @@
 #!/usr/bin/env sh
 
 COMM=$(calcurse --appointment)
-
-if [ "$COMM" = "" ]
-then
-	exit
-else
-	notify-send "Today" "$COMM"
-fi
+[ -z "$COMM" ] && exit 0
+notify-send "Today" "$COMM"
