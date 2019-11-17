@@ -1,40 +1,33 @@
 #!/usr/bin/env sh
 
-if [ -e $HOME/.night ]
+if [ -e "$HOME/.night" ]
 then
+	. "$HOME/.night"
 	case $1 in
 		"click")
-			NIGHT=$(tail -n -1 $HOME/.night)
-			if [ $NIGHT = 'NIGHT=1' ]
+			if [ "$NIGHT" = '1' ]
 			then
-				NIGHT='NIGHT=0'
+				sed -i 's/NIGHT=1/NIGHT=0/g' "$HOME/.night"
 			else
-				NIGHT='NIGHT=1'
+				sed -i 's/NIGHT=0/NIGHT=1/g' "$HOME/.night"
 			fi
-			echo 'CLICK=1' > $HOME/.night
-			echo $NIGHT >> $HOME/.night
+			sed -i 's/CLICK=0/CLICK=1/g' "$HOME/.night"
 			;;
 		"disable")
-			NIGHT=$(tail -n -1 $HOME/.night)
-			echo 'CLICK=0' > $HOME/.night
-			echo $NIGHT >> $HOME/.night
-			$HOME/.local/bin/nightmodetoggle cron
+			sed -i 's/CLICK=1/CLICK=0/g' "$HOME/.night"
+			"$HOME/.local/bin/nightmodetoggle" cron
 			exit
 			;;
 		"cron")
-			if [ $(head -n +1 $HOME/.night) = "CLICK=1" ]
+			[ "$CLICK" = "1" ] && exit
+			[ -e "$HOME/.sunset" ] && . "$HOME/.sunset"
+			[ -z "$SUNSET" ] && SUNSET=1959
+			[ -z "$SUNRISE" ] && SUNRISE=0600
+			if [ "$(date +%H%M)" -gt "$SUNSET" ] ||  [ "$(date +%H%M)" -lt "$SUNRISE" ]
 			then
-				exit
+				sed -i 's/NIGHT=0/NIGHT=1/g' "$HOME/.night"
 			else
-				[ -e $HOME/.sunset ] && . $HOME/.sunset
-				[ -z $SUNSET ] && SUNSET=1959
-				[ -z $SUNRISE ] && SUNRISE=0600
-				if [ `date +%H%M` -gt "$SUNSET" ] ||  [ `date +%H%M` -lt "$SUNRISE" ]
-				then
-					printf "CLICK=0\nNIGHT=1" > $HOME/.night	
-				else
-					printf "CLICK=0\nNIGHT=0" > $HOME/.night	
-				fi
+				sed -i 's/NIGHT=1/NIGHT=0/g' "$HOME/.night"
 			fi
 			;;
 		*)
@@ -42,14 +35,14 @@ then
 			exit
 			;;
 	esac
-	if [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
-	then
-
-		feh --bg-fill --randomize $HOME/Pictures/Wallpapers/Night/*	
+	. "$HOME/.night"
+	if [ "$NIGHT" = 1 ]; then
+		feh --bg-fill --randomize "$HOME/Pictures/Wallpapers/Night"/*
 	else
-		feh --bg-fill --randomize $HOME/Pictures/Wallpapers/Morning/*	
+		feh --bg-fill --randomize "$HOME/Pictures/Wallpapers/Morning"/*
 	fi
 else
-	touch $HOME/.night
-	printf "CLICK=0\nNIGHT=0" > $HOME/.night
+	:> "$HOME/.night"
+	printf "CLICK=0\nNIGHT=0\\n" > "$HOME/.night"
+	"$HOME/.local/bin/nightmodetoggle" disable
 fi

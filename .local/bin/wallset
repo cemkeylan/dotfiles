@@ -1,17 +1,11 @@
 #!/usr/bin/env sh
 
-# Dmenu Script to change wallpaper
-if [ $(tail -n -1 $HOME/.night) = "NIGHT=1" ]
-then
-	export nightmode="Night"
-else
-	export nightmode="Morning"
-fi
-export selection=$(ls $HOME/Pictures/Wallpapers/$nightmode | grep -i .jpg | dmenu -l 10)
-if [ "$selection" = "" ]
-then
-	exit
-else
-	feh --bg-fill $HOME/Pictures/Wallpapers/$nightmode/$selection
-	notify-send 'New wallpaper' 'Your wallpaper has been changed !'
-fi
+die() { printf "==> ERROR: $1\\n"; exit 1; }
+
+[ -e "$HOME/.night" ] || die "Could not find $HOME/.night"
+. "$HOME/.night"
+[ "$NIGHT" = "1" ] && nightmode="Night" || nightmode="Morning"
+selection="$(find "$HOME/Pictures/Wallpapers/$nightmode" -maxdepth 1 -name '*.jpg' -type f -printf "%f\n" | dmenu -l 10)"
+[ -z "$selection" ] && die "no selection was made"
+feh --bg-fill "$HOME/Pictures/Wallpapers/$nightmode/$selection"
+notify-send 'New wallpaper' 'Your wallpaper has been changed !'
