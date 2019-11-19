@@ -40,6 +40,10 @@ mod1 + shift + e
 	ask "killall dwm" "Do you want to exit dwm?"
 mod1 + ctrl + n
 	networkmanager_dmenu
+super + u
+	dmenumount
+super + shit + u
+	dmenuumount
 
 
 # Nightmode commands
