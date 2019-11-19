@@ -54,6 +54,8 @@ super + shift + e
 	nightmodetoggle disable
 super + shift + w
 	nightmodetoggle cron
+super + w
+	wallset
 mod1 + x
 	dmenuresources
 
