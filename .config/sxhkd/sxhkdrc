@@ -32,7 +32,7 @@ mod1 + c
 	$TERMINAL -e calcurse
 super + shift + m
 	$TERMINAL -e pulsemixer
-super + shift + c
+mod1 + ctrl + shift + c
 	mpv --no-osc --no-input-default-bindings --input-conf=/dev/null --title='mpvfloat' /dev/video0
 mod1 + ctrl + k
 	killall screenkey || screenkey
