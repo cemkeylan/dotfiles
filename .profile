@@ -1,7 +1,7 @@
 # Default Applications and Configuration Directory
 export EDITOR="/usr/bin/nvim"
 export TERMINAL="st"
-export BROWSER="qutebrowser"
+export BROWSER="surf-open.sh"
 export MAILER="neomutt"
 export SUDO_ASKPASS=$HOME/.local/bin/dpass
 export PAGER="vimpager"
