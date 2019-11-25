@@ -6,7 +6,7 @@ setxkbmap $KEYMAP
 xcompmgr -C &
 nightmodetoggle disable &
 powercheck &
-slstatus &
+/usr/local/bin/sb &
 [ -e $HOME/.lastresource ] && xrdb "$(cat $HOME/.lastresource)" || xrdb $HOME/.local/share/xresource-themes/dark/dracula
 zc &
 unclutter &
