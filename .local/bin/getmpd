@@ -1,3 +1,3 @@
 #!/usr/bin/env sh
 mpc -f "[[%artist% - ]%title%]|[%file%]" 2>/dev/null | grep -v "volume:" | head -n 1 | tr '\n' ' '
-mpc | awk 'NR==2' | awk '{print $3}'
+mpc 2>/dev/null | awk 'NR==2' | awk '{print $3}'
