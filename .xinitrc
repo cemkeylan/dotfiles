@@ -10,7 +10,6 @@ powercheck &
 [ -e $HOME/.lastresource ] && xrdb "$(cat $HOME/.lastresource)" || xrdb $HOME/.local/share/xresource-themes/dark/dracula
 zc &
 unclutter &
-numlockx on &
 mpd >/dev/null 2>&1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 dbus-update-activation-environment --systemd DISPLAY
