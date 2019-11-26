@@ -18,8 +18,8 @@ alias mutt="neomutt"
 alias vim="nvim"                         # Lol I forget typing nvim
 
 # Source shell rc
-alias sb="source $HOME/.bashrc"
-alias sz="source $HOME/.zshrc"
+[ -n "$BASH_VERSION" ] && alias sb="source $HOME/.bashrc"
+[ -n "$ZSH_VERSION" ] && alias sz="source $HOME/.zshrc"
 
 # Youtube MP3 alias
 alias ymp3="youtube-dl --audio-format mp3 -x"
