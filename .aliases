@@ -24,6 +24,8 @@ alias vim="nvim"                         # Lol I forget typing nvim
 # Youtube MP3 alias
 alias ymp3="youtube-dl --audio-format mp3 -x"
 
+alias sc="shortcuts"
+
 # Distro-specific ##################################################################
 
 # Arch specific aliases 
