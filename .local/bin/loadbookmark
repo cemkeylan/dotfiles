@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-dmenu -p 'Load Bookmark' -i -b -l 10 -w "$1" < ~/.surf/bookmarks | awk '{print $1}'
+dmenu -p 'Load Bookmark' -i -l 10 -w "$1" < ~/.surf/bookmarks | awk '{print $1}'
