@@ -1,9 +1,9 @@
 #!/usr/bin/env sh
 
-out() { printf "$@\\n" ;}
-error() { out "ERROR: $@" ; } >&2
-msg() { out "==> $@" ; }
-die() { error "$@"; exit 1; }
+out() { printf "$1\\n" ;}
+error() { out "ERROR: $1" ; } >&2
+msg() { out "==> $1" ; }
+die() { error "$1"; exit 1; }
 
 pacman --version >/dev/null 2>&1 && carbs="carbs" && alias install="sudo pacman -S --noconfirm --needed" && defdot="git://git.ckyln.com/dotfiles"
 xbps-install --version >/dev/null 2>&1 && carbs="vcarbs" && alias install="sudo xbps-install -y" && defdot="git://git.ckyln.com/vdotfiles"
