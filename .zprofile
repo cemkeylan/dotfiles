@@ -1,2 +1,2 @@
 source $HOME/.profile
-[ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ] && exec startx
+[ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ] && exec startx || return 0
