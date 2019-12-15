@@ -1,0 +1,48 @@
+! Space Xresources palette
+st.alpha: 0.70
+#define bg             #0A1E2B
+#define fg             #c7bac3
+#define c0             #0A1E2B
+#define c1             #5C5B6F
+#define c2             #9B506D
+#define c3             #C34266
+#define c4             #4E708D
+#define c5             #BF6790
+#define c6             #528899
+#define c7             #c7bac3
+#define c8             #8b8288
+#define c9             #5C5B6F
+#define c10            #9B506D
+#define c11            #C34266
+#define c12            #4E708D
+#define c13            #BF6790
+#define c14            #528899
+#define c15            #c7bac3
+
+
+*.foreground:           fg     
+*.background:           bg     
+*.color0:               c0 
+*.color8:               c8 
+*.color1:               c1 
+*.color9:               c9 
+*.color2:               c2 
+*.color10:              c10
+*.color3:               c3 
+*.color11:              c11
+*.color4:               c4 
+*.color12:              c12
+*.color5:               c5 
+*.color13:              c13
+*.color6:               c6 
+*.color14:              c14
+*.color7:               c7 
+*.color15:              c15
+
+dwm.normbgcolor:        bg
+dwm.normfgcolor:        c7
+dwm.selfgcolor:         fg 
+dwm.selbgcolor:         c4
+dwm.selbordercolor:     c4
+
+! vi:set filetype=xdefaults:
