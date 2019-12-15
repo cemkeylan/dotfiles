@@ -4,7 +4,7 @@ if [ "$1" = "off" ]; then
 	exit 0
 fi
 
-. "$HOME"/.profile
+. "$HOME/.profile"
 
 foreground="$(xrdb -query | grep foreground | head -n 1 | awk '{print $2}')"
 background="$(xrdb -query | grep background | head -n 1 | awk '{print $2}')"
