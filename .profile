@@ -4,7 +4,6 @@ export TERMINAL="st"
 export BROWSER="surf-open.sh"
 export MAILER="neomutt"
 export SUDO_ASKPASS=$HOME/.local/bin/dpass
-export PAGER="vimpager"
 export FILE="lf"
 
 export XDG_CONFIG_HOME=$HOME/.config
