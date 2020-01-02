@@ -1,13 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 zshinstall() {
+	echo "Installing Oh My Zsh and Cem's zsh theme"
 	bef=$PWD
 	cd $HOME
-	git clone https://github.com/robbyrussell/oh-my-zsh
-	mv oh-my-zsh .oh-my-zsh
-	git clone git://git.ckyln.com/keylanzsh
-	mv keylanzsh/keylan.zsh-theme .oh-my-zsh/themes
-	rm -rf keylanzsh
+	git clone --quiet https://github.com/robbyrussell/oh-my-zsh
+	mv oh-my-zsh .oh-my-zsh >/dev/null
+	git clone --quiet git://git.ckyln.com/keylanzsh
+	mv keylanzsh/keylan.zsh-theme .oh-my-zsh/themes >/dev/null
+	rm -rf keylanzsh >/dev/null
 	cd $bef
 }
 ! [ -d $HOME/.oh-my-zsh ] && zshinstall >/dev/null
