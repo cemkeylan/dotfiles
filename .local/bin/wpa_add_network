@@ -6,7 +6,7 @@ if [ "$(tty)" = "not a tty" ]; then
 	printf "tty"
 else
 	getvalue() {
-		printf "$1\n"
+		printf "$1 "
 		read VALUE
 	}
 	prompt() {
@@ -23,11 +23,11 @@ fi
 [ -z "$SSID" ] && exit 1
 
 if prompt "Is the network password protected?" ; then
-	getvalue "Enter the password"
+	getvalue "Enter the password:"
 	PASSWORD="$VALUE"
 	[ -z "$PASSWORD" ] && exit 1
 	wpa_passphrase "$SSID" "$PASSWORD" | sudo tee -a /etc/wpa_supplicant/wpa_supplicant.conf
 else
-	printf "network={\n        ssid=$SSID\n        keymgmt=NONE\n         priority=-999\n         }\n" | \
+	printf "network={\n        ssid=$SSID\n        keymgmt=NONE\n        priority=-999\n        }\n" | \
 		sudo tee -a /etc/wpa_supplicant/wpa_supplicant.conf
 fi
